@@ -13,6 +13,9 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+ 
+  # Enable Flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
  # Enable networking
   networking = {
