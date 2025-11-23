@@ -125,11 +125,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	  vim
+	  neovim
 	  git
 	  gh
 	  mpv
 	  htop
+	  tailscale
           rsync
   ];
 
@@ -179,6 +180,9 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  
+  # Enable tailscale
+  services.tailscale.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
