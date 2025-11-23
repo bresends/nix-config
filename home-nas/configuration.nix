@@ -123,6 +123,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 	  vim
+	  git
+	  gh
 	  mpv
 	  htop
           rsync
