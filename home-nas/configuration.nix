@@ -130,8 +130,7 @@
 	  gh
 	  mpv
 	  htop
-	  tailscale
-          rsync
+    rsync
   ];
 
   fileSystems."/mnt/tank" = {
