@@ -126,6 +126,22 @@
   # Flatpack
   services.flatpak.enable = true;
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 15d";
+  };
+
+  programs.git = {
+    enable = true;
+    config = {
+      user.name = "Bruno Resende";
+      user.email = "bruno.resende@gmx.com";
+      init.defaultBranch = "main";
+    };
+  };
+
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
