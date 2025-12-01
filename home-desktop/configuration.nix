@@ -123,6 +123,9 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  # Flatpack
+  services.flatpak.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
