@@ -93,6 +93,7 @@
       kdePackages.kate
       ghostty
       gh
+      google-chrome
     ];
   };
 
