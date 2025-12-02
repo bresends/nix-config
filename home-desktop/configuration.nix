@@ -124,10 +124,9 @@
   # Flatpack
   services.flatpak.enable = true;
 
-
-  # Neovim
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
+  # ZSH
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   # Git
   programs.git = {
@@ -139,6 +138,9 @@
     };
   };
 
+  # Neovim
+  programs.neovim.enable = true;
+  programs.neovim.defaultEditor = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
