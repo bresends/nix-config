@@ -93,6 +93,7 @@
       kdePackages.kate
       ghostty
       gh
+      stow
       google-chrome
       zoxide
       lazygit
