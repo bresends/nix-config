@@ -125,8 +125,32 @@
   services.flatpak.enable = true;
 
   # ZSH
-  programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -l";
+      nix-switch = "sudo nixos-rebuild switch --flake .";
+    };
+
+    setOptions = [
+      "HIST_IGNORE_ALL_DUPS"
+    ];
+
+    ohMyZsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "z"
+      ];
+      theme = "robbyrussell";
+    };
+  };
 
   # Starship
   programs.starship.enable = true;
