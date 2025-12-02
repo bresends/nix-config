@@ -128,6 +128,9 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
+  # Starship
+  programs.starship.enable = true;
+
   # Git
   programs.git = {
     enable = true;
