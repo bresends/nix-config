@@ -94,6 +94,8 @@
       ghostty
       gh
       google-chrome
+      zoxide
+      lazygit
     ];
   };
 
@@ -104,7 +106,6 @@
   # $ nix search wget
  environment.systemPackages = with pkgs; [
 	  neovim
-	  git
 	  htop
   ];
 
