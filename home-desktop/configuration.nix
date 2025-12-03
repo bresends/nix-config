@@ -92,10 +92,12 @@
     packages = with pkgs; [
       kdePackages.kate
       ghostty
+      starship
       gh
       stow
       google-chrome
       zoxide
+      tmux
       lazygit
     ];
   };
