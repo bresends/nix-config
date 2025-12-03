@@ -91,9 +91,11 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
+      keepassxc
       ghostty
       starship
       gh
+      fzf
       stow
       google-chrome
       zoxide
