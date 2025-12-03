@@ -154,7 +154,6 @@
       enable = true;
       plugins = [
         "git"
-        "z"
       ];
       theme = "robbyrussell";
     };
