@@ -103,6 +103,7 @@
       lazygit
       python3
       nodejs
+      claude-code
     ];
   };
 
@@ -143,7 +144,6 @@
 
     shellAliases = {
       ll = "ls -l";
-      nix-switch = "sudo nixos-rebuild switch --flake .";
     };
 
     setOptions = [
@@ -154,8 +154,10 @@
       enable = true;
       plugins = [
         "git"
+        "zsh-autosuggestions"
+        "F-Sy-H"
+        "fzf-tab"
       ];
-      theme = "robbyrussell";
     };
   };
 
