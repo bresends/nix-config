@@ -166,11 +166,12 @@
       enable = true;
       plugins = [
         "git"
-        "zsh-autosuggestions"
-        "F-Sy-H"
-        "fzf-tab"
       ];
     };
+
+    interactiveShellInit = ''
+      source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+    '';
   };
 
   # Starship
