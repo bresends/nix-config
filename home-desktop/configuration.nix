@@ -45,6 +45,18 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
+  # Input method for dead keys support in Ghostty
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-gtk
+      qt6Packages.fcitx5-configtool
+      qt6Packages.fcitx5-with-addons
+      fcitx5-m17n
+    ];
+  };
+
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
