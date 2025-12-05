@@ -18,6 +18,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable CUPS to print documents
+  services.printing.enable = true;
+
   # System state version
   system.stateVersion = "25.05";
 }

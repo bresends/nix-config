@@ -6,7 +6,6 @@
     ../../../modules/common/base.nix
     ../../../modules/common/locale.nix
     ../../../modules/common/audio.nix
-    ../../../modules/common/printing.nix
     ../../../modules/desktop/kde-plasma.nix
     ../../../modules/desktop/flatpak.nix
     ../../../modules/desktop/fcitx5.nix
