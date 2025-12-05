@@ -54,6 +54,7 @@
     gcc
     unzip
     htop
+    lutris
   ];
 
   # ZSH configuration
