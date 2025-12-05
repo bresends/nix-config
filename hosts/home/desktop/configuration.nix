@@ -52,6 +52,7 @@
   # System packages
   environment.systemPackages = with pkgs; [
     gcc
+    unzip
     htop
   ];
 
