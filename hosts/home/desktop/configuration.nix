@@ -38,6 +38,7 @@
       starship
       gh
       fzf
+      rsync
       stow
       google-chrome
       zoxide
@@ -101,11 +102,4 @@
   # Neovim
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
-
-  # Garbage Collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 15d";
-  };
 }

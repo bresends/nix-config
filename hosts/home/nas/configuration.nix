@@ -32,10 +32,10 @@
 
   # Locale configuration
   myLocale = {
-    defaultLocale = "pt_BR.UTF-8";
-    keyboardLayout = "br";
-    keyboardVariant = "";
-    consoleKeyMap = "br-abnt2";
+    defaultLocale = "en_US.UTF-8";
+    keyboardLayout = "us";
+    keyboardVariant = "intl";
+    consoleKeyMap = "us-acentos";
   };
 
   # Define user account
@@ -45,6 +45,9 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
+      rsync
+      neovim
+      gh
     ];
   };
 
@@ -54,12 +57,9 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    neovim
     git
-    gh
     mpv
     htop
-    rsync
   ];
 
   # Install firefox
