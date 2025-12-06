@@ -8,7 +8,6 @@
     ../../../modules/common/audio.nix
     ../../../modules/desktop/kde-plasma.nix
     ../../../modules/desktop/flatpak.nix
-    ../../../modules/desktop/fcitx5.nix
   ];
 
   # Hostname
