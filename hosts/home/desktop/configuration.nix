@@ -55,6 +55,7 @@
     unzip
     htop
     lutris
+    mpv
   ];
 
   # ZSH configuration
