@@ -25,6 +25,13 @@
     consoleKeyMap = "us-acentos";
   };
 
+  # Mount additional drive
+  fileSystems."/mnt/barracuda" = {
+    device = "/dev/disk/by-uuid/35991c62-0cd9-4a34-9e38-aa46f153288f";
+    fsType = "ext4";
+    options = [ "defaults" ];
+  };
+
   # Define user account
   users.users.bruno = {
     isNormalUser = true;
