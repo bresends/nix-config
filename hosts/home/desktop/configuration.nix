@@ -24,6 +24,11 @@
     consoleKeyMap = "us-acentos";
   };
 
+  # Fix cedilla for Brazilian keyboard users
+  i18n.extraLocaleSettings = {
+    LC_CTYPE = "pt_BR.UTF-8";
+  };
+
   # Fix dead keys for GTK apps (like Ghostty)
   environment.sessionVariables = {
     GTK_IM_MODULE = "simple";
