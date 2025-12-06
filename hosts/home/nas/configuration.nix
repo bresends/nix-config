@@ -71,7 +71,13 @@
     options = [ "defaults" ];
   };
 
-  services.syncthing.enable = true;
+  # Syncthing
+  services.syncthing = {
+    enable = true;
+    user = "bruno";
+    guiAddress = "0.0.0.0:8384";
+    openDefaultPorts = true;
+  };
 
   # Samba configuration
   mySamba = {
