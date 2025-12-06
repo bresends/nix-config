@@ -117,4 +117,15 @@
   # Neovim
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
+
+  # Syncthing
+  services.syncthing = {
+    enable = true;
+    user = "bruno";
+    group = "users";
+    dataDir = "/home/bruno";
+    configDir = "/home/bruno/.config/syncthing";
+    guiAddress = "127.0.0.1:8384";
+    openDefaultPorts = true;
+  };
 }

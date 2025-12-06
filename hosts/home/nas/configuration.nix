@@ -29,9 +29,6 @@
   networking.defaultGateway = "192.168.0.1";
   networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
 
-  # Open firewall port for Syncthing web GUI
-  networking.firewall.allowedTCPPorts = [ 8384 ];
-
   # Locale configuration
   myLocale = {
     defaultLocale = "en_US.UTF-8";
@@ -72,17 +69,6 @@
     device = "/dev/disk/by-uuid/afa4df74-f0ef-479f-92e3-1f9314e153d5";
     fsType = "ext4";
     options = [ "defaults" ];
-  };
-
-  # Syncthing
-  services.syncthing = {
-    enable = true;
-    user = "bruno";
-    group = "users";
-    dataDir = "/home/bruno";
-    configDir = "/home/bruno/.config/syncthing";
-    guiAddress = "0.0.0.0:8384";
-    openDefaultPorts = true;
   };
 
   # Samba configuration
