@@ -32,6 +32,13 @@
     options = [ "defaults" ];
   };
 
+  # Mount NAS Samba share
+  fileSystems."/mnt/nas" = {
+    device = "//192.168.0.10/media";
+    fsType = "cifs";
+    options = [ "guest" "nofail" ];
+  };
+
   # Define user account
   users.users.bruno = {
     isNormalUser = true;
