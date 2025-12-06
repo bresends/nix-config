@@ -47,6 +47,7 @@
     packages = with pkgs; [
       kdePackages.kate
       ghostty
+      keepassxc
       starship
       gh
       fzf
