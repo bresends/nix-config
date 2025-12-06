@@ -24,6 +24,11 @@
     consoleKeyMap = "us-acentos";
   };
 
+  # Fix dead keys for GTK apps (like Ghostty)
+  environment.sessionVariables = {
+    GTK_IM_MODULE = "simple";
+  };
+
   # Mount additional drive
   fileSystems."/mnt/barracuda" = {
     device = "/dev/disk/by-uuid/35991c62-0cd9-4a34-9e38-aa46f153288f";
