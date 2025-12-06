@@ -75,6 +75,9 @@
   services.syncthing = {
     enable = true;
     user = "bruno";
+    group = "users";
+    dataDir = "/home/bruno";
+    configDir = "/home/bruno/.config/syncthing";
     guiAddress = "0.0.0.0:8384";
     openDefaultPorts = true;
   };
