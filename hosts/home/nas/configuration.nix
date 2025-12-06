@@ -71,6 +71,8 @@
     options = [ "defaults" ];
   };
 
+  services.syncthing.enable = true;
+
   # Samba configuration
   mySamba = {
     enable = true;
