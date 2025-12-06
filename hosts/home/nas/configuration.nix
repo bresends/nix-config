@@ -29,6 +29,9 @@
   networking.defaultGateway = "192.168.0.1";
   networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
 
+  # Open firewall port for Syncthing web GUI
+  networking.firewall.allowedTCPPorts = [ 8384 ];
+
   # Locale configuration
   myLocale = {
     defaultLocale = "en_US.UTF-8";
