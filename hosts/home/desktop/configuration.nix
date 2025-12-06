@@ -36,7 +36,7 @@
   fileSystems."/mnt/nas" = {
     device = "//192.168.0.10/media";
     fsType = "cifs";
-    options = [ "guest" "nofail" ];
+    options = [ "guest" "nofail" "uid=1000" "gid=100" ];
   };
 
   # Define user account
