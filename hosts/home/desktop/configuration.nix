@@ -46,7 +46,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
-      keepassxc
       ghostty
       starship
       gh
