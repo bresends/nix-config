@@ -13,7 +13,11 @@
   # Define the secret that needs to be extracted
   sops.secrets."cloudflare/api_token" = {
     sopsFile = ./../../secrets/secrets.yaml;
-    restartUnits = [ "acme-order-renew-home.cbmgo.org.service" ];
+    restartUnits = [
+      "acme-order-renew-radarr.home.cbmgo.org.service"
+      "acme-order-renew-sonarr.home.cbmgo.org.service"
+      "acme-order-renew-bazarr.home.cbmgo.org.service"
+    ];
   };
 
   # Template to create the credentials file in the format ACME expects
@@ -22,13 +26,24 @@
   '';
   sops.templates."cloudflare-credentials".owner = "acme";
 
-  # Configure ACME with Cloudflare DNS - Wildcard certificate
+  # Configure ACME with Cloudflare DNS
   security.acme = {
     acceptTerms = true;
     defaults.email = "bruno@cbmgo.org";
-    certs."home.cbmgo.org" = {
-      domain = "*.home.cbmgo.org";
-      extraDomainNames = [ "home.cbmgo.org" ];
+
+    certs."radarr.home.cbmgo.org" = {
+      dnsProvider = "cloudflare";
+      credentialsFile = config.sops.templates."cloudflare-credentials".path;
+      group = config.services.nginx.group;
+    };
+
+    certs."sonarr.home.cbmgo.org" = {
+      dnsProvider = "cloudflare";
+      credentialsFile = config.sops.templates."cloudflare-credentials".path;
+      group = config.services.nginx.group;
+    };
+
+    certs."bazarr.home.cbmgo.org" = {
       dnsProvider = "cloudflare";
       credentialsFile = config.sops.templates."cloudflare-credentials".path;
       group = config.services.nginx.group;
@@ -42,7 +57,7 @@
       # Radarr
       "radarr.home.cbmgo.org" = {
         forceSSL = true;
-        useACMEHost = "home.cbmgo.org";
+        useACMEHost = "radarr.home.cbmgo.org";
         locations."/" = {
           proxyPass = "http://127.0.0.1:7878";
           proxyWebsockets = true;
@@ -53,7 +68,7 @@
       # Sonarr
       "sonarr.home.cbmgo.org" = {
         forceSSL = true;
-        useACMEHost = "home.cbmgo.org";
+        useACMEHost = "sonarr.home.cbmgo.org";
         locations."/" = {
           proxyPass = "http://127.0.0.1:8989";
           proxyWebsockets = true;
@@ -64,7 +79,7 @@
       # Bazarr
       "bazarr.home.cbmgo.org" = {
         forceSSL = true;
-        useACMEHost = "home.cbmgo.org";
+        useACMEHost = "bazarr.home.cbmgo.org";
         locations."/" = {
           proxyPass = "http://127.0.0.1:6767";
           proxyWebsockets = true;
