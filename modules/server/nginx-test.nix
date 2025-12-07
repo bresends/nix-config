@@ -25,11 +25,11 @@
   # Configure ACME with Cloudflare DNS
   security.acme = {
     acceptTerms = true;
-    defaults = {
-      email = "bruno@cbmgo.org";
+    defaults.email = "bruno@cbmgo.org";
+    certs."test.home.cbmgo.org" = {
       dnsProvider = "cloudflare";
       credentialsFile = config.sops.templates."cloudflare-credentials".path;
-      server = "https://acme-v02.api.letsencrypt.org/directory";
+      group = config.services.nginx.group;
     };
   };
 
@@ -37,7 +37,7 @@
     enable = true;
     virtualHosts."test.home.cbmgo.org" = {
       forceSSL = true;
-      enableACME = true;
+      useACMEHost = "test.home.cbmgo.org";
       locations."/" = {
         return = "200 'Hello from NixOS nginx with SSL!'";
         extraConfig = ''
