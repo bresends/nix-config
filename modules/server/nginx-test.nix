@@ -10,6 +10,11 @@
   sops.defaultSopsFormat = "yaml";
   sops.age.keyFile = "/home/bruno/.config/sops/age/keys.txt";
 
+  # Define the secret that needs to be extracted
+  sops.secrets."cloudflare/api_token" = {
+    restartUnits = [ "acme-order-renew-test.home.cbmgo.org.service" ];
+  };
+
   # Template to create the credentials file in the format ACME expects
   sops.templates."cloudflare-credentials".content = ''
     CLOUDFLARE_DNS_API_TOKEN=${config.sops.placeholder."cloudflare/api_token"}
