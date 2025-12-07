@@ -81,6 +81,9 @@
     mpv
   ];
 
+  # SSH
+  programs.ssh.startAgent = true;
+
   # ZSH configuration
   users.defaultUserShell = pkgs.zsh;
 
