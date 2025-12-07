@@ -12,6 +12,7 @@
     ../../../modules/server/tailscale.nix
     ../../../modules/server/no-sleep.nix
     ../../../modules/server/samba.nix
+    ../../../modules/server/nginx-test.nix
   ];
 
   # Hostname
