@@ -29,6 +29,7 @@
       email = "bruno@cbmgo.org";
       dnsProvider = "cloudflare";
       credentialsFile = config.sops.templates."cloudflare-credentials".path;
+      server = "https://acme-v02.api.letsencrypt.org/directory";
     };
   };
 
