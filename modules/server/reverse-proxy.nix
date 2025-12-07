@@ -14,9 +14,14 @@
   sops.secrets."cloudflare/api_token" = {
     sopsFile = ./../../secrets/secrets.yaml;
     restartUnits = [
+      "acme-order-renew-proxmox.home.cbmgo.org.service"
+      "acme-order-renew-qbittorrent.home.cbmgo.org.service"
+      "acme-order-renew-prowlarr.home.cbmgo.org.service"
       "acme-order-renew-radarr.home.cbmgo.org.service"
       "acme-order-renew-sonarr.home.cbmgo.org.service"
       "acme-order-renew-bazarr.home.cbmgo.org.service"
+      "acme-order-renew-lidarr.home.cbmgo.org.service"
+      "acme-order-renew-jellyfin.home.cbmgo.org.service"
     ];
   };
 
@@ -30,6 +35,24 @@
   security.acme = {
     acceptTerms = true;
     defaults.email = "bruno@cbmgo.org";
+
+    certs."proxmox.home.cbmgo.org" = {
+      dnsProvider = "cloudflare";
+      credentialsFile = config.sops.templates."cloudflare-credentials".path;
+      group = config.services.nginx.group;
+    };
+
+    certs."qbittorrent.home.cbmgo.org" = {
+      dnsProvider = "cloudflare";
+      credentialsFile = config.sops.templates."cloudflare-credentials".path;
+      group = config.services.nginx.group;
+    };
+
+    certs."prowlarr.home.cbmgo.org" = {
+      dnsProvider = "cloudflare";
+      credentialsFile = config.sops.templates."cloudflare-credentials".path;
+      group = config.services.nginx.group;
+    };
 
     certs."radarr.home.cbmgo.org" = {
       dnsProvider = "cloudflare";
@@ -48,12 +71,60 @@
       credentialsFile = config.sops.templates."cloudflare-credentials".path;
       group = config.services.nginx.group;
     };
+
+    certs."lidarr.home.cbmgo.org" = {
+      dnsProvider = "cloudflare";
+      credentialsFile = config.sops.templates."cloudflare-credentials".path;
+      group = config.services.nginx.group;
+    };
+
+    certs."jellyfin.home.cbmgo.org" = {
+      dnsProvider = "cloudflare";
+      credentialsFile = config.sops.templates."cloudflare-credentials".path;
+      group = config.services.nginx.group;
+    };
   };
 
   services.nginx = {
     enable = true;
 
     virtualHosts = {
+      # Proxmox
+      "proxmox.home.cbmgo.org" = {
+        forceSSL = true;
+        useACMEHost = "proxmox.home.cbmgo.org";
+        locations."/" = {
+          proxyPass = "https://127.0.0.1:8006";
+          proxyWebsockets = true;
+          recommendedProxySettings = true;
+          extraConfig = ''
+            proxy_ssl_verify off;
+          '';
+        };
+      };
+
+      # qBittorrent
+      "qbittorrent.home.cbmgo.org" = {
+        forceSSL = true;
+        useACMEHost = "qbittorrent.home.cbmgo.org";
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:8080";
+          proxyWebsockets = true;
+          recommendedProxySettings = true;
+        };
+      };
+
+      # Prowlarr
+      "prowlarr.home.cbmgo.org" = {
+        forceSSL = true;
+        useACMEHost = "prowlarr.home.cbmgo.org";
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:9696";
+          proxyWebsockets = true;
+          recommendedProxySettings = true;
+        };
+      };
+
       # Radarr
       "radarr.home.cbmgo.org" = {
         forceSSL = true;
@@ -82,6 +153,28 @@
         useACMEHost = "bazarr.home.cbmgo.org";
         locations."/" = {
           proxyPass = "http://127.0.0.1:6767";
+          proxyWebsockets = true;
+          recommendedProxySettings = true;
+        };
+      };
+
+      # Lidarr
+      "lidarr.home.cbmgo.org" = {
+        forceSSL = true;
+        useACMEHost = "lidarr.home.cbmgo.org";
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:8686";
+          proxyWebsockets = true;
+          recommendedProxySettings = true;
+        };
+      };
+
+      # Jellyfin
+      "jellyfin.home.cbmgo.org" = {
+        forceSSL = true;
+        useACMEHost = "jellyfin.home.cbmgo.org";
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:8096";
           proxyWebsockets = true;
           recommendedProxySettings = true;
         };
