@@ -14,7 +14,6 @@
   sops.secrets."cloudflare/api_token" = {
     sopsFile = ./../../secrets/secrets.yaml;
     restartUnits = [
-      "acme-order-renew-proxmox.home.cbmgo.org.service"
       "acme-order-renew-qbittorrent.home.cbmgo.org.service"
       "acme-order-renew-prowlarr.home.cbmgo.org.service"
       "acme-order-renew-radarr.home.cbmgo.org.service"
@@ -87,21 +86,6 @@
 
   services.nginx = {
     enable = true;
-
-    virtualHosts = {
-      # Proxmox
-      "proxmox.home.cbmgo.org" = {
-        forceSSL = true;
-        useACMEHost = "proxmox.home.cbmgo.org";
-        locations."/" = {
-          proxyPass = "https://127.0.0.1:8006";
-          proxyWebsockets = true;
-          recommendedProxySettings = true;
-          extraConfig = ''
-            proxy_ssl_verify off;
-          '';
-        };
-      };
 
       # qBittorrent
       "qbittorrent.home.cbmgo.org" = {
