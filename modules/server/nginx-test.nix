@@ -6,12 +6,13 @@
   ];
 
   # Configure sops to read secrets
-  sops.defaultSopsFile = ../../../secrets/secrets.yaml;
+  sops.defaultSopsFile = ./../../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
   sops.age.keyFile = "/home/bruno/.config/sops/age/keys.txt";
 
   # Define the secret that needs to be extracted
   sops.secrets."cloudflare/api_token" = {
+    sopsFile = ./../../secrets/secrets.yaml;
     restartUnits = [ "acme-order-renew-test.home.cbmgo.org.service" ];
   };
 
