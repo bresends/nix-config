@@ -28,6 +28,7 @@
         modules = [
           ./hosts/8bbm/nas/configuration.nix
         ];
+      };
 
       "8bbm-sgp" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
