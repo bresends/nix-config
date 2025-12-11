@@ -5,30 +5,27 @@
     ./hardware-configuration.nix
     ../../../modules/common/base.nix
     ../../../modules/common/locale.nix
-    ../../../modules/common/audio.nix
-    ../../../modules/desktop/kde-plasma.nix
     ../../../modules/server/ssh.nix
     ../../../modules/server/docker.nix
     ../../../modules/server/tailscale.nix
     ../../../modules/server/no-sleep.nix
     ../../../modules/server/samba.nix
-    ../../../modules/server/reverse-proxy.nix
   ];
 
   # Hostname
-  networking.hostName = "nixos";
+  networking.hostName = "servidor-1";
 
   # Static IP configuration
-  networking.interfaces.enp0s31f6 = {
+  networking.interfaces.enp0s25 = {
     useDHCP = false;
     ipv4.addresses = [{
-      address = "192.168.0.10";
+      address = "10.0.99.25";
       prefixLength = 24;
     }];
   };
 
-  networking.defaultGateway = "192.168.0.1";
-  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
+  networking.defaultGateway = "10.0.99.1";
+  networking.nameservers = [ "10.242.254.70" "10.242.254.71" ];
 
   # Locale configuration
   myLocale = {
@@ -39,9 +36,9 @@
   };
 
   # Define user account
-  users.users.bruno = {
+  users.users.adminbm = {
     isNormalUser = true;
-    description = "bruno";
+    description = "adminbm";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
@@ -51,10 +48,6 @@
     ];
   };
 
-  # Enable automatic login
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "bruno";
-
   # System packages
   environment.systemPackages = with pkgs; [
     git
@@ -62,12 +55,8 @@
     htop
   ];
 
-  # Install firefox
-  programs.firefox.enable = true;
-
-  # Mount additional drive
   fileSystems."/mnt/tank" = {
-    device = "/dev/disk/by-uuid/afa4df74-f0ef-479f-92e3-1f9314e153d5";
+    device = "/dev/disk/by-uuid/1f0f3d0b-2ddc-416e-a285-e9807ea11a67";
     fsType = "ext4";
     options = [ "defaults" ];
   };
@@ -77,7 +66,7 @@
     enable = true;
     shares = {
       "media" = {
-        "path" = "/mnt/tank/media";
+        "path" = "/mnt/tank/public";
         "browseable" = "yes";
         "read only" = "no";
         "guest ok" = "yes";
