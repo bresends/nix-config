@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../common/zsh.nix
+    ../common/zsh.nix
   ];
 
   programs.zsh = {
