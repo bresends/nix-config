@@ -9,6 +9,7 @@
     ../../../modules/desktop/kde-plasma.nix
     ../../../modules/desktop/flatpak.nix
     ../../../modules/server/tailscale.nix
+    ../../../modules/desktop/zsh.nix
   ];
 
   # Hostname
@@ -85,34 +86,7 @@
   # SSH
   programs.ssh.startAgent = true;
 
-  # ZSH configuration
-  users.defaultUserShell = pkgs.zsh;
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      ll = "ls -l";
-    };
-
-    setOptions = [
-      "HIST_IGNORE_ALL_DUPS"
-    ];
-
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "git"
-      ];
-    };
-
-    interactiveShellInit = ''
-      source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-    '';
-  };
 
   # Starship
   programs.starship.enable = true;

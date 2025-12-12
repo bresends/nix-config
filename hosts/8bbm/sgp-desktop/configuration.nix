@@ -10,6 +10,7 @@
     ../../modules/server/ssh.nix
     ../../modules/server/docker.nix
     ../../modules/server/no-sleep.nix
+    ../../modules/desktop/zsh.nix
   ];
 
   # Hostname
