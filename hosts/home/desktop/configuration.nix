@@ -57,14 +57,15 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
-      ghostty
+      calibre
+      google-chrome
       keepassxc
+      ghostty
       starship
       gh
       fzf
       rsync
       stow
-      google-chrome
       zoxide
       tmux
       lazygit
