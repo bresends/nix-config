@@ -61,7 +61,6 @@
       keepassxc
       starship
       gh
-      uv
       fzf
       rsync
       stow
