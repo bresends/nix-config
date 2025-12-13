@@ -71,6 +71,7 @@
       python3
       nodejs
       claude-code
+      gemini-cli
     ];
   };
 
