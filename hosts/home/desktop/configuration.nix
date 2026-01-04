@@ -88,8 +88,6 @@
   # SSH
   programs.ssh.startAgent = true;
 
-
-
   # Starship
   programs.starship.enable = true;
 
@@ -117,4 +115,10 @@
     guiAddress = "127.0.0.1:8384";
     openDefaultPorts = true;
   };
+
+  # Steam
+  programs.steam = {
+    enable = true;
+  };
 }
+
