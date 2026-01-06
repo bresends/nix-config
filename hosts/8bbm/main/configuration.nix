@@ -15,7 +15,23 @@
   # Hostname
   networking.hostName = "nixos";
 
-  # Locale configuration
+  # Static IP configuration
+  networking.interfaces.enp0s31f6 = {
+    useDHCP = false;
+    ipv4.addresses = [{
+      address = "10.0.99.160";
+      prefixLength = 24;
+    }];
+   ipv4.routes = [{
+     address = "0.0.0.0";
+     prefixLength = 0;
+     via = "10.0.99.1";
+   }];
+  };
+
+  networking.nameservers = [ "10.242.254.70" "10.242.254.71" "1.1.1.1" "8.8.8.8" ];
+
+    # Locale configuration
   myLocale = {
     defaultLocale = "en_US.UTF-8";
     keyboardLayout = "us";
@@ -33,41 +49,25 @@
     GTK_IM_MODULE = "simple";
   };
 
-  # Mount additional drive
-  fileSystems."/mnt/barracuda" = {
-    device = "/dev/disk/by-uuid/35991c62-0cd9-4a34-9e38-aa46f153288f";
-    fsType = "ext4";
-    options = [ "defaults" ];
-  };
-
-  # Mount NAS Samba share
-  fileSystems."/mnt/nas" = {
-    device = "//192.168.0.10/media";
-    fsType = "cifs";
-    options = [ "guest" "nofail" "uid=1000" "gid=100" "file_mode=0664" "dir_mode=0775" ];
-  };
-
   # Define user account
-  users.users.bruno = {
+  users.users.brunoresende = {
     isNormalUser = true;
     description = "Bruno Resende";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
-      calibre
+      stow
       google-chrome
       keepassxc
       ghostty
       gh
       fzf
       rsync
-      stow
       zoxide
       tmux
       lazygit
       python3
       nodejs
-      lutris
       claude-code
       gemini-cli
     ];
@@ -77,17 +77,17 @@
   environment.systemPackages = with pkgs; [
     gcc
     unzip
+    git
     htop
-    mpv
   ];
 
   # SSH
   programs.ssh.startAgent = true;
 
-  # Starship
+  # Install Starship
   programs.starship.enable = true;
 
-  # Git
+    # Git
   programs.git = {
     enable = true;
     config = {
@@ -112,5 +112,9 @@
     openDefaultPorts = true;
   };
 
-}
+  # Steam
+  programs.steam = {
+    enable = true;
+  };
 
+}

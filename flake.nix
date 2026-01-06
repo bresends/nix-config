@@ -23,6 +23,12 @@
         ];
       };
 
+      "8bbm-main" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/8bbm/main/configuration.nix
+        ];
+      };
       "8bbm-nas" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [

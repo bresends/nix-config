@@ -21,6 +21,9 @@
   # Enable CUPS to print documents
   services.printing.enable = true;
 
+  # Enable Network Manager
+  networking.networkmanager.enable = true;
+
   # System state version
   system.stateVersion = "25.05";
 }
