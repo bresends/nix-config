@@ -50,8 +50,9 @@
   };
 
   # Define user account
-  users.users.brunoresende = {
+  users.users.bruno = {
     isNormalUser = true;
+    initialHashedPassword = "$y$j9T$fsjTRv2WFb3PuQy5Dg8850$X5eEEg8ROFA5Uf1lZxgzhjrHyduTRtwWRHpnEHgYh58";
     description = "Bruno Resende";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
