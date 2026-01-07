@@ -10,6 +10,7 @@
     ../../../modules/desktop/flatpak.nix
     ../../../modules/server/tailscale.nix
     ../../../modules/desktop/zsh.nix
+    ../../../modules/common/development.nix
   ];
 
   # Hostname
@@ -19,7 +20,7 @@
   networking.interfaces.enp0s31f6 = {
     useDHCP = false;
     ipv4.addresses = [{
-      address = "10.0.99.160";
+      address = "10.0.99.22";
       prefixLength = 24;
     }];
    ipv4.routes = [{
@@ -52,55 +53,19 @@
   # Define user account
   users.users.bruno = {
     isNormalUser = true;
-    initialHashedPassword = "$y$j9T$fsjTRv2WFb3PuQy5Dg8850$X5eEEg8ROFA5Uf1lZxgzhjrHyduTRtwWRHpnEHgYh58";
     description = "Bruno Resende";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
-      stow
       google-chrome
       keepassxc
-      ghostty
-      gh
-      fzf
-      rsync
-      zoxide
-      tmux
-      lazygit
-      python3
-      nodejs
-      claude-code
-      gemini-cli
+      obsidian
     ];
   };
 
   # System packages
   environment.systemPackages = with pkgs; [
-    gcc
-    unzip
-    git
-    htop
   ];
-
-  # SSH
-  programs.ssh.startAgent = true;
-
-  # Install Starship
-  programs.starship.enable = true;
-
-    # Git
-  programs.git = {
-    enable = true;
-    config = {
-      user.name = "Bruno Resende";
-      user.email = "bruno.resende@gmx.com";
-      init.defaultBranch = "main";
-    };
-  };
-
-  # Neovim
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
 
   # Syncthing
   services.syncthing = {

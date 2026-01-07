@@ -10,6 +10,7 @@
     ../../../modules/desktop/flatpak.nix
     ../../../modules/server/tailscale.nix
     ../../../modules/desktop/zsh.nix
+    ../../../modules/common/development.nix
   ];
 
   # Hostname
@@ -57,49 +58,14 @@
       calibre
       google-chrome
       keepassxc
-      ghostty
-      gh
-      fzf
-      rsync
-      stow
-      zoxide
-      tmux
-      lazygit
-      python3
-      nodejs
       lutris
-      claude-code
-      gemini-cli
     ];
   };
 
   # System packages
   environment.systemPackages = with pkgs; [
-    gcc
-    unzip
-    htop
     mpv
   ];
-
-  # SSH
-  programs.ssh.startAgent = true;
-
-  # Starship
-  programs.starship.enable = true;
-
-  # Git
-  programs.git = {
-    enable = true;
-    config = {
-      user.name = "Bruno Resende";
-      user.email = "bruno.resende@gmx.com";
-      init.defaultBranch = "main";
-    };
-  };
-
-  # Neovim
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
 
   # Syncthing
   services.syncthing = {
