@@ -8,6 +8,7 @@
     ../../../modules/common/audio.nix
     ../../../modules/desktop/kde-plasma.nix
     ../../../modules/desktop/flatpak.nix
+    ../../../modules/desktop/fcitx5.nix
     ../../../modules/server/tailscale.nix
     ../../../modules/desktop/zsh.nix
     ../../../modules/common/development.nix
@@ -43,11 +44,6 @@
   # Fix cedilla for Brazilian keyboard users
   i18n.extraLocaleSettings = {
     LC_CTYPE = "pt_BR.UTF-8";
-  };
-
-  # Fix dead keys for GTK apps (like Ghostty)
-  environment.sessionVariables = {
-    GTK_IM_MODULE = "simple";
   };
 
   # Define user account
