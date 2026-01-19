@@ -45,7 +45,7 @@
     tailwindcss-language-server # tailwindcss
     vscode-langservers-extracted # html, css, jsonls
     emmet-ls                   # emmet_ls
-    dockerfile-language-server-nodejs # dockerls
+    dockerfile-language-server # dockerls
     yaml-language-server       # yamlls
     lua-language-server        # lua_ls
     # Note: pyrefly not yet available in nixpkgs (still in beta)
