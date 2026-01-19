@@ -38,29 +38,6 @@
     nodejs
     claude-code
     gemini-cli
-
-    # Neovim LSP Servers
-    bash-language-server       # bashls
-    marksman                   # markdown LSP
-    tailwindcss-language-server # tailwindcss
-    vscode-langservers-extracted # html, css, jsonls
-    emmet-ls                   # emmet_ls
-    dockerfile-language-server # dockerls
-    yaml-language-server       # yamlls
-    lua-language-server        # lua_ls
-    # Note: pyrefly not yet available in nixpkgs (still in beta)
-    # Note: biome LSP is included with the biome formatter below
-
-    # Neovim Formatters
-    biome      # JS/TS formatter (also provides LSP)
-    stylua     # Lua formatter
-    prettierd  # Multi-language formatter
-    ruff       # Python formatter
-    fixjson    # JSON formatter
-
-    # Neovim Linters
-    markdownlint-cli2 # Markdown linter
-    hadolint          # Dockerfile linter
   ];
 
   programs.ssh.startAgent = true;
