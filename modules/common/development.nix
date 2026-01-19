@@ -38,6 +38,12 @@
     nodejs
     claude-code
     gemini-cli
+    # Formatters for Neovim Conform
+    biome
+    stylua
+    prettierd
+    ruff
+    fixjson
   ];
 
   programs.ssh.startAgent = true;
