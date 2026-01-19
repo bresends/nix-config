@@ -38,6 +38,7 @@
     nodejs
     claude-code
     gemini-cli
+    biome
   ];
 
   programs.ssh.startAgent = true;
