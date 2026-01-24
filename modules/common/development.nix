@@ -11,7 +11,7 @@
     enable = true;
     config = {
       user.name = "Bruno Resende";
-      user.email = "bruno.resende@gmx.com";
+      user.email = "bruno.resendesantos45@gmail.com";
       init.defaultBranch = "main";
     };
   };
@@ -34,10 +34,12 @@
     zoxide
     tmux
     lazygit
-    python3
-    nodejs
     claude-code
     gemini-cli
+    # Neovim
+    python3
+    nodejs
+    lua-language-server
     biome
   ];
 
