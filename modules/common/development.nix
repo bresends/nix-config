@@ -44,6 +44,7 @@
     lua-language-server
     vscode-langservers-extracted
     tailwindcss-language-server
+    emmet-ls
     biome
     marksman
     # Formatters (Neovim)
