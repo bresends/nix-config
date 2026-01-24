@@ -36,7 +36,7 @@
     lazygit
     claude-code
     gemini-cli
-    # Neovim
+    # Language Servers (Neovim)
     python3
     nodejs
     lua-language-server
@@ -44,6 +44,14 @@
     tailwindcss-language-server
     biome
     marksman
+    # Formatters (Neovim)
+    stylua
+    prettierd
+    ruff
+    fixjson
+    # Linters (Neovim)
+    markdownlint-cli2
+    hadolint
   ];
 
   programs.ssh.startAgent = true;
