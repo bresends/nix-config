@@ -39,6 +39,8 @@
     # Language Servers (Neovim)
     python3
     nodejs
+    lua5_1
+    luarocks
     lua-language-server
     vscode-langservers-extracted
     tailwindcss-language-server
