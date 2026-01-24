@@ -45,7 +45,7 @@
     vscode-langservers-extracted
     tailwindcss-language-server
     emmet-ls
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     biome
     marksman
     # Formatters (Neovim)
