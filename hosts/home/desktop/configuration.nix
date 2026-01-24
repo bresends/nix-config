@@ -12,6 +12,7 @@
     ../../../modules/desktop/zsh.nix
     ../../../modules/common/development.nix
     ../../../modules/common/android-dev.nix
+    ../../../modules/desktop/kanata.nix
   ];
 
   # Hostname
@@ -53,7 +54,7 @@
   users.users.bruno = {
     isNormalUser = true;
     description = "Bruno Resende";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "uinput" ];
     packages = with pkgs; [
       kdePackages.kate
       calibre
