@@ -40,7 +40,10 @@
     python3
     nodejs
     lua-language-server
+    vscode-langservers-extracted
+    tailwindcss-language-server
     biome
+    marksman
   ];
 
   programs.ssh.startAgent = true;
