@@ -57,6 +57,9 @@
     # Linters (Neovim)
     markdownlint-cli2
     hadolint
+    # Pomodoro
+    timer
+    lolcat
   ];
 
   programs.ssh.startAgent = true;
