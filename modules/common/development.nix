@@ -53,6 +53,7 @@
     prettierd
     ruff
     fixjson
+    nixfmt-rfc-style
     # Linters (Neovim)
     markdownlint-cli2
     hadolint
