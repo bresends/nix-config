@@ -21,20 +21,29 @@
   # Static IP configuration
   networking.interfaces.enp0s31f6 = {
     useDHCP = false;
-    ipv4.addresses = [{
-      address = "10.0.99.22";
-      prefixLength = 24;
-    }];
-   ipv4.routes = [{
-     address = "0.0.0.0";
-     prefixLength = 0;
-     via = "10.0.99.1";
-   }];
+    ipv4.addresses = [
+      {
+        address = "10.0.99.22";
+        prefixLength = 24;
+      }
+    ];
+    ipv4.routes = [
+      {
+        address = "0.0.0.0";
+        prefixLength = 0;
+        via = "10.0.99.1";
+      }
+    ];
   };
 
-  networking.nameservers = [ "10.242.254.70" "10.242.254.71" "1.1.1.1" "8.8.8.8" ];
+  networking.nameservers = [
+    "10.242.254.70"
+    "10.242.254.71"
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
 
-    # Locale configuration
+  # Locale configuration
   myLocale = {
     defaultLocale = "en_US.UTF-8";
     keyboardLayout = "us";
@@ -51,7 +60,10 @@
   users.users.bruno = {
     isNormalUser = true;
     description = "Bruno Resende";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
       google-chrome
@@ -62,6 +74,7 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
+    mpv
   ];
 
   # Syncthing
