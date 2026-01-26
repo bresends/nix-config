@@ -12,6 +12,7 @@
     ../../../modules/server/tailscale.nix
     ../../../modules/desktop/zsh.nix
     ../../../modules/common/development.nix
+    ../../../modules/desktop/kanata.nix
   ];
 
   # Hostname
