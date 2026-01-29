@@ -36,9 +36,10 @@
     lazygit
     claude-code
     gemini-cli
-    # Language Servers (Neovim)
     python3
     nodejs
+    postgresql
+    # Language Servers (Neovim)
     lua5_1
     luarocks
     lua-language-server
