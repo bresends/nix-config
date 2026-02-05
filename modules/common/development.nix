@@ -35,7 +35,7 @@
     tmux
     lazygit
     claude-code
-    gemini-cli
+    opencode
     python3
     nodejs
     postgresql
