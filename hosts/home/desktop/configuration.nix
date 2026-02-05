@@ -13,6 +13,7 @@
     ../../../modules/common/development.nix
     ../../../modules/common/android-dev.nix
     ../../../modules/desktop/kanata.nix
+    ../../../modules/desktop/onlyoffice.nix
   ];
 
   # Hostname

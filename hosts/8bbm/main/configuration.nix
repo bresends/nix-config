@@ -13,6 +13,7 @@
     ../../../modules/desktop/zsh.nix
     ../../../modules/common/development.nix
     ../../../modules/desktop/kanata.nix
+    ../../../modules/desktop/onlyoffice.nix
   ];
 
   # Hostname
@@ -72,15 +73,9 @@
     ];
   };
 
-  # Fonts for OnlyOffice
-  fonts.packages = with pkgs; [
-    corefonts
-  ];
-
   # System packages
   environment.systemPackages = with pkgs; [
     mpv
-    onlyoffice-desktopeditors
   ];
 
   # Syncthing
