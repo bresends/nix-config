@@ -36,6 +36,7 @@
     lazygit
     claude-code
     opencode
+    gemini
     python3
     nodejs
     postgresql
