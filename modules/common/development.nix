@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, claude-code-flake, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -34,7 +34,7 @@
     zoxide
     tmux
     lazygit
-    claude-code
+    claude-code-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
     opencode
     gemini-cli
     python3
