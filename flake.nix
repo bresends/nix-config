@@ -3,11 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    sops-nix.url = "github:Mic92/sops-nix";
     claude-code-flake.url = "github:sadjow/claude-code-nix";
   };
 
-  outputs = { self, nixpkgs, sops-nix, claude-code-flake, ... }: {
+  outputs = { self, nixpkgs, claude-code-flake, ... }: {
     nixosConfigurations = {
       home-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -19,7 +18,6 @@
 
       home-nas = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit sops-nix; };
         modules = [
           ./hosts/home/nas/configuration.nix
         ];
