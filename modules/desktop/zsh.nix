@@ -1,19 +1,24 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ../common/zsh.nix
+  users.defaultUserShell = pkgs.zsh;
+
+  environment.systemPackages = with pkgs; [
+    fzf
   ];
 
-  # ZSH configuration
-  # The common/zsh.nix already enables zsh and sets defaultUserShell
   programs.zsh = {
+    enable = true;
     enableCompletion = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 
     shellAliases = {
+      ls = "ls --color=auto -lh";
+      lsa = "ls --color=auto -lah";
       ll = "ls -l";
+      lg = "lazygit";
+      vim = "nvim";
     };
 
     setOptions = [

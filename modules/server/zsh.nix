@@ -1,21 +1,18 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ../common/zsh.nix
+  users.defaultUserShell = pkgs.zsh;
+
+  environment.systemPackages = with pkgs; [
+    fzf
   ];
 
   programs.zsh = {
+    enable = true;
     enableCompletion = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 
-    shellAliases = {
-      ls = "ls --color=auto -lh";
-      lsa = "ls --color=auto -lah";
-      lg = "lazygit";
-      vim = "nvim";
-    };
 
     ohMyZsh = {
       enable = true;
