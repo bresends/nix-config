@@ -3,14 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     claude-code-flake.url = "github:sadjow/claude-code-nix";
   };
 
-  outputs = { self, nixpkgs, claude-code-flake, ... }: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, claude-code-flake, ... }: let
+    pkgs-unstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
+  in {
     nixosConfigurations = {
       home-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit claude-code-flake; };
+        specialArgs = { inherit claude-code-flake pkgs-unstable; };
         modules = [
           ./hosts/home/desktop/configuration.nix
         ];
@@ -25,7 +28,7 @@
 
       "8bbm-main" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit claude-code-flake; };
+        specialArgs = { inherit claude-code-flake pkgs-unstable; };
         modules = [
           ./hosts/8bbm/main/configuration.nix
         ];

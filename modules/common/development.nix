@@ -1,4 +1,4 @@
-{ config, pkgs, claude-code-flake, ... }:
+{ config, pkgs, pkgs-unstable, claude-code-flake, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -36,7 +36,7 @@
     lazygit
     claude-code-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
     opencode
-    gemini-cli
+    pkgs-unstable.gemini-cli
     python3
     nodejs
     postgresql
