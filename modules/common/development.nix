@@ -42,7 +42,7 @@
     lazygit
     claude-code-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs-unstable.gemini-cli
-    opencode
+    pkgs-unstable.opencode
     python3
     nodejs
     postgresql
