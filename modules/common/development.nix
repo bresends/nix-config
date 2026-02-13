@@ -35,7 +35,6 @@
     tmux
     lazygit
     claude-code-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
-    opencode
     pkgs-unstable.gemini-cli
     python3
     nodejs
