@@ -68,6 +68,7 @@
     # Pomodoro
     timer
     lolcat
+    libnotify
   ];
 
   programs.ssh.startAgent = true;
