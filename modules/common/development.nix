@@ -36,6 +36,7 @@
     starship
     gh
     fzf
+    ripgrep
     rsync
     zoxide
     tmux
