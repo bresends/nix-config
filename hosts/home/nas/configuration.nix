@@ -13,6 +13,7 @@
     ../../../modules/server/no-sleep.nix
     ../../../modules/server/samba.nix
     ../../../modules/server/zsh.nix
+    ../../../modules/common/development.nix
   ];
 
   # Hostname
@@ -21,14 +22,19 @@
   # Static IP configuration
   networking.interfaces.enp0s31f6 = {
     useDHCP = false;
-    ipv4.addresses = [{
-      address = "192.168.0.10";
-      prefixLength = 24;
-    }];
+    ipv4.addresses = [
+      {
+        address = "192.168.0.10";
+        prefixLength = 24;
+      }
+    ];
   };
 
   networking.defaultGateway = "192.168.0.1";
-  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
+  networking.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+  ];
 
   # Locale configuration
   myLocale = {
@@ -42,12 +48,14 @@
   users.users.bruno = {
     isNormalUser = true;
     description = "bruno";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     packages = with pkgs; [
       kdePackages.kate
       rsync
-      neovim
-      gh
     ];
   };
 
@@ -57,7 +65,6 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    git
     mpv
     htop
   ];
