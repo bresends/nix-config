@@ -21,6 +21,7 @@
 
       home-nas = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit claude-code-flake pkgs-unstable; };
         modules = [
           ./hosts/home/nas/configuration.nix
         ];
