@@ -35,6 +35,7 @@
     ghostty
     starship
     gh
+    infisical
     fzf
     ripgrep
     rsync
