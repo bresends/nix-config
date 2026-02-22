@@ -57,7 +57,7 @@
     emmet-ls
     dockerfile-language-server
     biome
-    marksman
+    markdown-oxide
     # Formatters (Neovim)
     stylua
     prettierd
