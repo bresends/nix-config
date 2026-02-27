@@ -31,6 +31,7 @@
 
   # This assumes a user 'bruno' is defined in the main configuration
   users.users.bruno.packages = with pkgs; [
+    vscode
     stow
     ghostty
     starship
