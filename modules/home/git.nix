@@ -3,9 +3,9 @@
 {
   programs.git = {
     enable = true;
-    userName = "Bruno Resende";
-    userEmail = "bruno.resendesantos45@gmail.com";
-    extraConfig = {
+    settings = {
+      user.name = "Bruno Resende";
+      user.email = "bruno.resendesantos45@gmail.com";
       init.defaultBranch = "main";
     };
   };
