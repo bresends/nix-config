@@ -2,7 +2,7 @@
   config,
   pkgs,
   pkgs-unstable,
-  claude-code-flake,
+  inputs,
   ...
 }:
 
@@ -44,7 +44,7 @@
     zoxide
     tmux
     lazygit
-    claude-code-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.claude-code-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs-unstable.gemini-cli
     pkgs-unstable.opencode
     python3
