@@ -13,28 +13,18 @@
     htop
   ];
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
-  programs.starship.enable = true;
-  programs.direnv.enable = true;
 
   # This assumes a user 'bruno' is defined in the main configuration
   users.users.bruno.packages = with pkgs; [
     vscode
     stow
     ghostty
-    starship
     gh
     infisical
     fzf
     ripgrep
     rsync
     zoxide
-    tmux
-    lazygit
     inputs.claude-code-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs-unstable.gemini-cli
     pkgs-unstable.opencode
