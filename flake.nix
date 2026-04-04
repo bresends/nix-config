@@ -31,7 +31,7 @@
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
-                extraSpecialArgs = { inherit inputs; };
+                extraSpecialArgs = { inherit inputs pkgs-unstable; };
                 users.bruno = import ./modules/home/common.nix;
               };
             }
@@ -54,7 +54,7 @@
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
-                extraSpecialArgs = { inherit inputs; };
+                extraSpecialArgs = { inherit inputs pkgs-unstable; };
                 users.bruno = import ./modules/home/common.nix;
               };
             }

@@ -14,7 +14,6 @@
     ./lazygit.nix
     ./neovim.nix
     ./starship.nix
-    ./syncthing.nix
     ./tmux.nix
     ./zsh.nix
   ];
@@ -22,12 +21,14 @@
   home.username = "bruno";
   home.homeDirectory = "/home/bruno";
 
+  nixpkgs.config.allowUnfree = true;
+
   home.packages = with pkgs; [
     kdePackages.kate
-    google-chrome
     keepassxc
     mpv
-    obsidian
+    google-chrome
+    pkgs-unstable.obsidian
   ];
 
   home.sessionVariables = {

@@ -10,6 +10,7 @@
     ../../modules/nixos/flatpak.nix
     ../../modules/nixos/fcitx5.nix
     ../../modules/nixos/tailscale.nix
+    ../../modules/nixos/syncthing.nix
     ../../modules/nixos/development.nix
     ../../modules/nixos/kanata.nix
     ../../modules/nixos/onlyoffice.nix

@@ -8,7 +8,7 @@
 
 {
   home.packages = with pkgs; [
-    vscode
+    pkgs-unstable.vscode
     stow
     ghostty
     gh
