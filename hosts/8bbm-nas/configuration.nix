@@ -3,14 +3,13 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../../modules/common/base.nix
-    ../../../modules/common/locale.nix
-    ../../../modules/server/ssh.nix
-    ../../../modules/server/docker.nix
-    ../../../modules/server/tailscale.nix
-    ../../../modules/server/no-sleep.nix
-    ../../../modules/server/samba.nix
-    ../../../modules/server/zsh.nix
+    ../../modules/nixos/base.nix
+    ../../modules/nixos/locale.nix
+    ../../modules/nixos/ssh.nix
+    ../../modules/nixos/docker.nix
+    ../../modules/nixos/tailscale.nix
+    ../../modules/nixos/no-sleep.nix
+    ../../modules/nixos/samba.nix
     ./static-network.nix
   ];
 

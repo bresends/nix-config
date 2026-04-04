@@ -24,6 +24,10 @@
   # Enable Network Manager
   networking.networkmanager.enable = true;
 
+  # Default shell
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+
   # System state version
   system.stateVersion = "25.05";
 }

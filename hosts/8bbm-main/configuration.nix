@@ -3,17 +3,16 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../../modules/common/base.nix
-    ../../../modules/common/locale.nix
-    ../../../modules/common/audio.nix
-    ../../../modules/desktop/kde-plasma.nix
-    ../../../modules/desktop/flatpak.nix
-    ../../../modules/desktop/fcitx5.nix
-    ../../../modules/server/tailscale.nix
-    ../../../modules/desktop/zsh.nix
-    ../../../modules/common/development.nix
-    ../../../modules/desktop/kanata.nix
-    ../../../modules/desktop/onlyoffice.nix
+    ../../modules/nixos/base.nix
+    ../../modules/nixos/locale.nix
+    ../../modules/nixos/audio.nix
+    ../../modules/nixos/kde-plasma.nix
+    ../../modules/nixos/flatpak.nix
+    ../../modules/nixos/fcitx5.nix
+    ../../modules/nixos/tailscale.nix
+    ../../modules/nixos/development.nix
+    ../../modules/nixos/kanata.nix
+    ../../modules/nixos/onlyoffice.nix
   ];
 
   # Hostname

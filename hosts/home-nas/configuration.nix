@@ -3,17 +3,16 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../../modules/common/base.nix
-    ../../../modules/common/locale.nix
-    ../../../modules/common/audio.nix
-    ../../../modules/desktop/kde-plasma.nix
-    ../../../modules/server/ssh.nix
-    ../../../modules/server/docker.nix
-    ../../../modules/server/tailscale.nix
-    ../../../modules/server/no-sleep.nix
-    ../../../modules/server/samba.nix
-    ../../../modules/server/zsh.nix
-    ../../../modules/common/development.nix
+    ../../modules/nixos/base.nix
+    ../../modules/nixos/locale.nix
+    ../../modules/nixos/audio.nix
+    ../../modules/nixos/kde-plasma.nix
+    ../../modules/nixos/ssh.nix
+    ../../modules/nixos/docker.nix
+    ../../modules/nixos/tailscale.nix
+    ../../modules/nixos/no-sleep.nix
+    ../../modules/nixos/samba.nix
+    ../../modules/nixos/development.nix
   ];
 
   # Hostname

@@ -1,16 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  users.defaultUserShell = pkgs.zsh;
-
-  environment.systemPackages = with pkgs; [
-    fzf
-  ];
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestions.enable = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
     shellAliases = {
@@ -21,20 +15,20 @@
       vim = "nvim";
     };
 
-    setOptions = [
-      "HIST_IGNORE_ALL_DUPS"
-    ];
+    history.ignoreDups = true;
 
-    ohMyZsh = {
+    oh-my-zsh = {
       enable = true;
-      plugins = [
-        "git"
-      ];
-      theme = "agnoster"; # Added agnoster theme as requested for desktops
+      plugins = [ "git" ];
+      theme = "agnoster";
     };
 
-    interactiveShellInit = ''
+    initExtra = ''
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
     '';
   };
+
+  home.packages = with pkgs; [
+    fzf
+  ];
 }

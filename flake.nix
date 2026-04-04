@@ -27,7 +27,7 @@
           inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
-            ./hosts/home/desktop/configuration.nix
+            ./hosts/home-desktop/configuration.nix
           ];
         };
 
@@ -35,7 +35,7 @@
           inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
-            ./hosts/home/nas/configuration.nix
+            ./hosts/home-nas/configuration.nix
           ];
         };
 
@@ -43,20 +43,20 @@
           inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
-            ./hosts/8bbm/main/configuration.nix
+            ./hosts/8bbm-main/configuration.nix
           ];
         };
         "8bbm-nas" = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/8bbm/nas/configuration.nix
+            ./hosts/8bbm-nas/configuration.nix
           ];
         };
 
         "8bbm-sgp" = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/8bbm/sgp-desktop/configuration.nix
+            ./hosts/8bbm-sgp/configuration.nix
           ];
         };
       };
