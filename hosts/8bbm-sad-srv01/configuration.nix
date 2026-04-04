@@ -51,7 +51,6 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    git
     mpv
     htop
   ];

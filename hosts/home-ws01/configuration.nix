@@ -1,9 +1,8 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.home-manager
     ../../modules/nixos/base.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/audio.nix
@@ -69,12 +68,6 @@
   environment.systemPackages = with pkgs; [
     mpv
   ];
-
-  # Home Manager
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users.bruno = import ./home.nix;
-  };
 
   # Syncthing
   services.syncthing = {

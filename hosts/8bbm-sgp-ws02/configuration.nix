@@ -10,6 +10,7 @@
     ../../modules/nixos/ssh.nix
     ../../modules/nixos/docker.nix
     ../../modules/nixos/no-sleep.nix
+    ../../modules/nixos/onlyoffice.nix
   ];
 
   # Hostname
@@ -48,9 +49,7 @@
   # System packages
   environment.systemPackages = with pkgs; [
     neovim
-    git
     htop
-    pkgs.libreoffice-qt6-fresh
   ];
 
   # Install firefox

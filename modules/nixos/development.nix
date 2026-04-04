@@ -13,15 +13,6 @@
     htop
   ];
 
-  programs.git = {
-    enable = true;
-    config = {
-      user.name = "Bruno Resende";
-      user.email = "bruno.resendesantos45@gmail.com";
-      init.defaultBranch = "main";
-    };
-  };
-
   programs.neovim = {
     enable = true;
     defaultEditor = true;

@@ -23,40 +23,55 @@
     in
     {
       nixosConfigurations = {
-        home-desktop = nixpkgs.lib.nixosSystem {
+        home-ws01 = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
-            ./hosts/home-desktop/configuration.nix
+            ./hosts/home-ws01/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                extraSpecialArgs = { inherit inputs; };
+                users.bruno = import ./modules/home/common.nix;
+              };
+            }
           ];
         };
 
-        home-nas = nixpkgs.lib.nixosSystem {
+        home-srv01 = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
-            ./hosts/home-nas/configuration.nix
+            ./hosts/home-srv01/configuration.nix
           ];
         };
 
-        "8bbm-main" = nixpkgs.lib.nixosSystem {
+        "8bbm-sgp-ws01" = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
-            ./hosts/8bbm-main/configuration.nix
-          ];
-        };
-        "8bbm-nas" = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/8bbm-nas/configuration.nix
+            ./hosts/8bbm-sgp-ws01/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                extraSpecialArgs = { inherit inputs; };
+                users.bruno = import ./modules/home/common.nix;
+              };
+            }
           ];
         };
 
-        "8bbm-sgp" = nixpkgs.lib.nixosSystem {
+        "8bbm-sgp-ws02" = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/8bbm-sgp/configuration.nix
+            ./hosts/8bbm-sgp-ws02/configuration.nix
+          ];
+        };
+
+        "8bbm-sad-srv01" = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/8bbm-sad-srv01/configuration.nix
           ];
         };
       };
