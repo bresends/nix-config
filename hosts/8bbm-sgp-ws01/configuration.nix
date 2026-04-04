@@ -65,9 +65,6 @@
       "wheel"
     ];
     packages = with pkgs; [
-      kdePackages.kate
-      google-chrome
-      keepassxc
       obsidian
     ];
   };
@@ -76,17 +73,6 @@
   environment.systemPackages = with pkgs; [
     mpv
   ];
-
-  # Syncthing
-  services.syncthing = {
-    enable = true;
-    user = "bruno";
-    group = "users";
-    dataDir = "/home/bruno";
-    configDir = "/home/bruno/.config/syncthing";
-    guiAddress = "127.0.0.1:8384";
-    openDefaultPorts = true;
-  };
 
   # Steam
   programs.steam = {

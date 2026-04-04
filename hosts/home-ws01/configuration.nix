@@ -31,11 +31,6 @@
     LC_CTYPE = "pt_BR.UTF-8";
   };
 
-  # Fix dead keys for GTK apps (like Ghostty)
-  environment.sessionVariables = {
-    GTK_IM_MODULE = "simple";
-  };
-
   # Mount additional drive
   fileSystems."/mnt/barracuda" = {
     device = "/dev/disk/by-uuid/35991c62-0cd9-4a34-9e38-aa46f153288f";
@@ -47,19 +42,28 @@
   fileSystems."/mnt/nas" = {
     device = "//192.168.0.10/media";
     fsType = "cifs";
-    options = [ "guest" "nofail" "uid=1000" "gid=100" "file_mode=0664" "dir_mode=0775" ];
+    options = [
+      "guest"
+      "nofail"
+      "uid=1000"
+      "gid=100"
+      "file_mode=0664"
+      "dir_mode=0775"
+    ];
   };
 
   # Define user account
   users.users.bruno = {
     isNormalUser = true;
     description = "Bruno Resende";
-    extraGroups = [ "networkmanager" "wheel" "input" "uinput" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+      "uinput"
+    ];
     packages = with pkgs; [
-      kdePackages.kate
       calibre
-      google-chrome
-      keepassxc
       lutris
     ];
   };
@@ -69,21 +73,9 @@
     mpv
   ];
 
-  # Syncthing
-  services.syncthing = {
-    enable = true;
-    user = "bruno";
-    group = "users";
-    dataDir = "/home/bruno";
-    configDir = "/home/bruno/.config/syncthing";
-    guiAddress = "127.0.0.1:8384";
-    openDefaultPorts = true;
-  };
-
-    # Steam
+  # Steam
   programs.steam = {
     enable = true;
   };
 
 }
-
