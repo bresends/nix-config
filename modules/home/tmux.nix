@@ -15,6 +15,7 @@ in
 {
   programs.tmux = {
     enable = true;
+    keyMode = "vi";
     plugins = with pkgs.tmuxPlugins; [
       sensible
       cpu
