@@ -54,7 +54,6 @@
     ];
     packages = with pkgs; [
       kdePackages.kate
-      rsync
     ];
   };
 
@@ -65,7 +64,6 @@
   # System packages
   environment.systemPackages = with pkgs; [
     mpv
-    htop
   ];
 
   # Install firefox

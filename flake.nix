@@ -43,6 +43,13 @@
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
             ./hosts/home-srv01/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                extraSpecialArgs = { inherit inputs pkgs-unstable; };
+                users.bruno = import ./hosts/home-srv01/home.nix;
+              };
+            }
           ];
         };
 
