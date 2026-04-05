@@ -23,6 +23,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.tmux.prefix = "C-b";
+
   programs.home-manager.enable = true;
 
   # Match the version from your other configurations
