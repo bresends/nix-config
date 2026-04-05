@@ -8,24 +8,20 @@
 
 {
   imports = [
-    ../../modules/home/zsh.nix
-    ../../modules/home/tmux.nix
-    ../../modules/home/git.nix
+    ../../modules/home/development.nix
     ../../modules/home/direnv.nix
+    ../../modules/home/git.nix
+    ../../modules/home/lazygit.nix
+    ../../modules/home/neovim.nix
     ../../modules/home/starship.nix
+    ../../modules/home/tmux.nix
+    ../../modules/home/zsh.nix
   ];
 
   home.username = "bruno";
   home.homeDirectory = "/home/bruno";
 
   nixpkgs.config.allowUnfree = true;
-
-  home.packages = with pkgs; [
-    htop
-    rsync
-    unzip
-    # Add your NAS-specific packages here
-  ];
 
   programs.home-manager.enable = true;
 

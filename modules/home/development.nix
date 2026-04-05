@@ -8,6 +8,9 @@
 
 {
   home.packages = with pkgs; [
+    gcc
+    unzip
+    htop
     pkgs-unstable.vscode
     stow
     ghostty
@@ -47,4 +50,6 @@
     pkgs-unstable.gemini-cli
     pkgs-unstable.opencode
   ];
+
+  services.ssh-agent.enable = true;
 }
