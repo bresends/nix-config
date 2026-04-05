@@ -16,6 +16,14 @@
     ../../modules/nixos/onlyoffice.nix
   ];
 
+  # Disable TPM (firmware bug causes 90s boot timeout)
+  boot.initrd.systemd.tpm2.enable = false;
+  systemd.suppressedSystemUnits = [
+    "dev-tpm0.device"
+    "dev-tpmrm0.device"
+    "tpm2.target"
+  ];
+
   # Hostname
   networking.hostName = "nixos";
 
