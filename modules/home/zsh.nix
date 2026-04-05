@@ -13,6 +13,7 @@
       ll = "ls -l";
       lg = "lazygit";
       vim = "nvim";
+      tmux = "tmux attach 2>/dev/null || tmux";
     };
 
     history.ignoreDups = true;
