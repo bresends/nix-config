@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   # Monokai Pro colors
@@ -14,7 +19,9 @@ let
   clockIcon = "#(${print-char "e641"})";
   hostIcon = "#(${print-char "f4a9"})";
 
-  pill = color: content: "#[bg=${bg},fg=${fg}]${ro}#[bg=${fg},fg=${color}]${content}#[bg=${bg},fg=${fg}]${rc}";
+  pill =
+    color: content:
+    "#[bg=${bg},fg=${fg}]${ro}#[bg=${fg},fg=${color}]${content}#[bg=${bg},fg=${fg}]${rc}";
 
   tmux-uptime = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-uptime";
@@ -37,7 +44,7 @@ in
     mouse = true;
     terminal = "tmux-256color";
     escapeTime = 0;
-    prefix = "C-Space";
+    prefix = lib.mkDefault "C-Space";
     plugins = with pkgs.tmuxPlugins; [
       sensible
       cpu
