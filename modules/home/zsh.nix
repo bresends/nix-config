@@ -27,6 +27,9 @@
     initContent = ''
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
+      # Clear screen (Ctrl+L is used by vim-tmux-navigator)
+      bindkey '^[l' clear-screen
+
       # SSH hostname completion from ~/.ssh/config
       complete -o default -o nospace -W "$(grep "^Host" $HOME/.ssh/config | cut -d" " -f2)" scp sftp ssh rsync
     '';
