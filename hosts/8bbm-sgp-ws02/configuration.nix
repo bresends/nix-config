@@ -76,7 +76,6 @@
     mpv
     p7zip
     unrar
-    google-chrome
   ];
 
   # Users
@@ -95,6 +94,7 @@
     ];
   };
 
+  programs.firefox.enable = true;
   nixpkgs.config.allowUnfree = true;
 
   # Nix settings
