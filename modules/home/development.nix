@@ -2,7 +2,7 @@
   config,
   pkgs,
   pkgs-unstable,
-  inputs,
+  llm-agents,
   ...
 }:
 
@@ -46,9 +46,8 @@
     timer
     lolcat
     libnotify
-    inputs.claude-code-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
-    pkgs-unstable.gemini-cli
-    pkgs-unstable.opencode
+    llm-agents.claude-code
+    llm-agents.opencode
   ];
 
   services.ssh-agent.enable = true;

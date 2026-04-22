@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    claude-code-flake.url = "github:sadjow/claude-code-nix";
+    llm-agents.url = "github:numtide/llm-agents.nix";
     colmena.url = "github:zhaofengli/colmena";
     disko = {
       url = "github:nix-community/disko";
@@ -25,6 +25,7 @@
         inherit system;
         config.allowUnfree = true;
       };
+      llm-agents = inputs.llm-agents.packages.${system};
     in
     {
       nixosConfigurations = {
@@ -36,7 +37,7 @@
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
-                extraSpecialArgs = { inherit inputs pkgs-unstable; };
+                extraSpecialArgs = { inherit inputs pkgs-unstable llm-agents; };
                 users.bruno = import ./modules/home/common.nix;
               };
             }
@@ -51,7 +52,7 @@
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
-                extraSpecialArgs = { inherit inputs pkgs-unstable; };
+                extraSpecialArgs = { inherit inputs pkgs-unstable llm-agents; };
                 users.bruno = import ./hosts/home-srv01/home.nix;
               };
             }
@@ -66,7 +67,7 @@
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
-                extraSpecialArgs = { inherit inputs pkgs-unstable; };
+                extraSpecialArgs = { inherit inputs pkgs-unstable llm-agents; };
                 users.bruno = import ./modules/home/common.nix;
               };
             }
