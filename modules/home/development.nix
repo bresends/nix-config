@@ -48,6 +48,7 @@
     libnotify
     llm-agents.claude-code
     llm-agents.opencode
+    llm-agents.gemini-cli
   ];
 
   services.ssh-agent.enable = true;
