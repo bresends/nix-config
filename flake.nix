@@ -6,6 +6,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     llm-agents.url = "github:numtide/llm-agents.nix";
     colmena.url = "github:zhaofengli/colmena";
+    helium.url = "github:schembriaiden/helium-browser-nix-flake";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";

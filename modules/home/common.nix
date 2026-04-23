@@ -27,7 +27,7 @@
     kdePackages.kate
     keepassxc
     mpv
-    google-chrome
+    inputs.helium.packages.${pkgs.system}.default
     pkgs-unstable.obsidian
   ];
 
