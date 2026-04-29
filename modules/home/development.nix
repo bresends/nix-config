@@ -49,6 +49,7 @@
     llm-agents.claude-code
     llm-agents.opencode
     llm-agents.gemini-cli
+    llm-agents.codex
   ];
 
   services.ssh-agent.enable = true;
