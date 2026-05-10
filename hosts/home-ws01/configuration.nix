@@ -32,6 +32,11 @@
     defaultLocale = "en_US.UTF-8";
   };
 
+  # Fix cedilla for Brazilian keyboard users
+  i18n.extraLocaleSettings = {
+    LC_CTYPE = "pt_BR.UTF-8";
+  };
+
   # Mount additional drive
   fileSystems."/mnt/barracuda" = {
     device = "/dev/disk/by-uuid/35991c62-0cd9-4a34-9e38-aa46f153288f";
