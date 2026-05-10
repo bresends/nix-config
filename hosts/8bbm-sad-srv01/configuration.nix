@@ -31,9 +31,6 @@
   # Locale configuration
   myLocale = {
     defaultLocale = "en_US.UTF-8";
-    keyboardLayout = "us";
-    keyboardVariant = "intl";
-    consoleKeyMap = "us-acentos";
   };
 
   # Define user account

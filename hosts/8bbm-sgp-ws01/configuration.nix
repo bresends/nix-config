@@ -46,9 +46,6 @@
   # Locale configuration
   myLocale = {
     defaultLocale = "en_US.UTF-8";
-    keyboardLayout = "us";
-    keyboardVariant = "intl";
-    consoleKeyMap = "us-acentos";
   };
 
   # Fix cedilla for Brazilian keyboard users

@@ -9,23 +9,6 @@
         description = "Default system locale";
       };
 
-      keyboardLayout = lib.mkOption {
-        type = lib.types.str;
-        default = "us";
-        description = "Keyboard layout for X11";
-      };
-
-      keyboardVariant = lib.mkOption {
-        type = lib.types.str;
-        default = "";
-        description = "Keyboard variant for X11";
-      };
-
-      consoleKeyMap = lib.mkOption {
-        type = lib.types.str;
-        default = "us";
-        description = "Console keymap";
-      };
     };
   };
 
@@ -48,12 +31,5 @@
       LC_TIME = "pt_BR.UTF-8";
     };
 
-    # Keyboard configuration
-    services.xserver.xkb = {
-      layout = config.myLocale.keyboardLayout;
-      variant = config.myLocale.keyboardVariant;
-    };
-
-    console.keyMap = config.myLocale.consoleKeyMap;
   };
 }

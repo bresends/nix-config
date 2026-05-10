@@ -13,6 +13,7 @@
     ../../modules/nixos/android-dev.nix
     ../../modules/nixos/kanata.nix
     ../../modules/nixos/onlyoffice.nix
+    ../../modules/nixos/fcitx5.nix
   ];
 
   # Disable TPM (firmware bug causes 90s boot timeout)
@@ -29,14 +30,6 @@
   # Locale configuration
   myLocale = {
     defaultLocale = "en_US.UTF-8";
-    keyboardLayout = "us";
-    keyboardVariant = "intl";
-    consoleKeyMap = "us-acentos";
-  };
-
-  # Fix cedilla for Brazilian keyboard users
-  i18n.extraLocaleSettings = {
-    LC_CTYPE = "pt_BR.UTF-8";
   };
 
   # Mount additional drive

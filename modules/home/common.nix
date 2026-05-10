@@ -32,7 +32,7 @@
   ];
 
   home.sessionVariables = {
-    GTK_IM_MODULE = "simple";
+    XMODIFIERS = "@im=fcitx";
   };
 
   programs.home-manager.enable = true;
