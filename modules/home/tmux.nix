@@ -97,9 +97,9 @@ in
 
       set -g status-left "${pill accent "#S"}"
 
-      set -g window-status-current-format "${pill accent "#I:#{pane_title}"}"
+      set -g window-status-current-format "${pill accent " #I "}"
 
-      set -g window-status-format "${pill muted "#I:#{pane_title}"}"
+      set -g window-status-format "${pill muted " #I "}"
 
     '';
   };
