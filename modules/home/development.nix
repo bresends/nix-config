@@ -33,7 +33,7 @@
     dockerfile-language-server
     biome
     markdown-oxide
-    clangd
+    clang-tools
     # Formatters (Neovim)
     stylua
     prettierd
