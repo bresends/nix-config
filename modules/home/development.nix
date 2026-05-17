@@ -33,6 +33,7 @@
     dockerfile-language-server
     biome
     markdown-oxide
+    clangd
     # Formatters (Neovim)
     stylua
     prettierd
@@ -42,6 +43,7 @@
     # Linters (Neovim)
     markdownlint-cli2
     hadolint
+    cpplint
     # Pomodoro
     timer
     lolcat
