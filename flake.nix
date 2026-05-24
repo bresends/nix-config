@@ -23,7 +23,7 @@
     let
       system = "x86_64-linux";
       pkgs-unstable = import inputs.nixpkgs-unstable {
-        inherit system;
+        localSystem.system = system;
         config.allowUnfree = true;
       };
       llm-agents = inputs.llm-agents.packages.${system};
@@ -31,7 +31,6 @@
     {
       nixosConfigurations = {
         "home-ws01" = nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
             ./hosts/home-ws01/configuration.nix
@@ -46,7 +45,6 @@
         };
 
         "home-srv01" = nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
             ./hosts/home-srv01/configuration.nix
@@ -61,7 +59,6 @@
         };
 
         "8bbm-sgp-ws01" = nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
             ./hosts/8bbm-sgp-ws01/configuration.nix

@@ -6,14 +6,22 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Automatic garbage collection
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 15d";
+    persistent = true;
+    options = "--delete-older-than 30d";
   };
+  nix.settings.auto-optimise-store = true;
+
+  # Passwordless sudo for wheel users
+  security.sudo.wheelNeedsPassword = false;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
