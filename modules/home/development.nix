@@ -6,12 +6,11 @@
   ...
 }:
 
-{
-  home.packages = with pkgs; [
+let
+  cliTools = with pkgs; [
     gcc
     unzip
     htop
-    pkgs-unstable.vscode
     stow
     ghostty
     gh
@@ -20,10 +19,22 @@
     ripgrep
     rsync
     zoxide
+  ];
+
+  runtimes = with pkgs; [
     python3
     nodejs
     postgresql
-    # Language Servers (Neovim)
+  ];
+
+  androidTools = with pkgs; [
+    android-studio
+    android-tools
+    flutter
+    firebase-tools
+  ];
+
+  languageServers = with pkgs; [
     lua5_1
     luarocks
     lua-language-server
@@ -34,25 +45,50 @@
     biome
     markdown-oxide
     clang-tools
-    # Formatters (Neovim)
+  ];
+
+  formatters = with pkgs; [
     stylua
     prettierd
     ruff
     fixjson
     nixfmt-rfc-style
-    # Linters (Neovim)
+  ];
+
+  linters = with pkgs; [
     markdownlint-cli2
     hadolint
     cpplint
-    # Pomodoro
+  ];
+
+  pomodoroTools = with pkgs; [
     timer
     lolcat
     libnotify
+  ];
+
+  editors = [
+    pkgs-unstable.vscode
+  ];
+
+  aiTools = [
     llm-agents.claude-code
     llm-agents.opencode
     llm-agents.gemini-cli
     llm-agents.codex
   ];
+in
+{
+  home.packages =
+    cliTools
+    ++ runtimes
+    ++ androidTools
+    ++ languageServers
+    ++ formatters
+    ++ linters
+    ++ pomodoroTools
+    ++ editors
+    ++ aiTools;
 
   services.ssh-agent.enable = true;
 }

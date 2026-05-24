@@ -36,6 +36,10 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
+  # Android Debug Bridge
+  programs.adb.enable = true;
+  users.users.bruno.extraGroups = [ "adbusers" ];
+
   # System state version
   system.stateVersion = "25.05";
 }
