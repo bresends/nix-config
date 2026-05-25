@@ -67,6 +67,7 @@ in
       # Terminal
       set-option -sa terminal-overrides ",xterm*:Tc"
       set-option -g renumber-windows on
+      set -g extended-keys on
 
       # Remaps
       bind-key c new-window -c "#{pane_current_path}"
