@@ -73,8 +73,8 @@ let
 
   aiTools = [
     llm-agents.claude-code
+    llm-agents.pi
     llm-agents.opencode
-    llm-agents.gemini-cli
     llm-agents.codex
   ];
 in
