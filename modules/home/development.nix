@@ -76,6 +76,7 @@ let
     llm-agents.pi
     llm-agents.opencode
     llm-agents.codex
+    llm-agents.antigravity
   ];
 in
 {
