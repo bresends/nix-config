@@ -11,6 +11,11 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     llm-agents.url = "github:numtide/llm-agents.nix";
     helium.url = "github:schembriaiden/helium-browser-nix-flake";
+    niri.url = "github:sodiboo/niri-flake";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";

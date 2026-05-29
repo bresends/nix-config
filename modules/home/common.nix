@@ -24,6 +24,8 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
+    bibata-cursors
+    kdePackages.dolphin
     kdePackages.kate
     keepassxc
     mpv

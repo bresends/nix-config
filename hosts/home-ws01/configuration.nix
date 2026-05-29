@@ -1,12 +1,17 @@
-{ config, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
+    inputs.niri.nixosModules.niri
     ./hardware-configuration.nix
     ../../modules/nixos/base.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/audio.nix
-    ../../modules/nixos/kde-plasma.nix
     ../../modules/nixos/flatpak.nix
     ../../modules/nixos/tailscale.nix
     ../../modules/nixos/syncthing.nix
@@ -76,6 +81,33 @@
   # System packages
   environment.systemPackages = with pkgs; [
     mpv
+    xwayland-satellite
+  ];
+
+  # Desktop
+  # Niri's module enables system portals, polkit, keyring, and session packages.
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri;
+  };
+
+  # Keep 32-bit graphics support for Steam/Wine games.
+  hardware.graphics.enable32Bit = true;
+
+  # Use Ly as a lightweight TUI login manager and unlock GNOME Keyring at login.
+  services.displayManager.ly = {
+    enable = true;
+    x11Support = false;
+  };
+  security.pam.services.ly.enableGnomeKeyring = true;
+
+  # Route xdg-open through the configured desktop portal.
+  xdg.portal.xdgOpenUsePortal = true;
+
+  home-manager.users.bruno.imports = [
+    inputs.noctalia.homeModules.default
+    ../../modules/home/niri.nix
+    ../../modules/home/noctalia.nix
   ];
 
   # Steam
