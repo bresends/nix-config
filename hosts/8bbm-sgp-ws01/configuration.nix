@@ -13,6 +13,8 @@
     ../../modules/nixos/syncthing.nix
     ../../modules/nixos/kanata.nix
     ../../modules/nixos/onlyoffice.nix
+    ../../modules/nixos/zsh.nix
+    ../../modules/nixos/adb.nix
   ];
 
   # Hostname
@@ -60,6 +62,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "adbusers"
     ];
     packages = with pkgs; [
       obsidian

@@ -18,6 +18,8 @@
     ../../modules/nixos/kanata.nix
     ../../modules/nixos/onlyoffice.nix
     ../../modules/nixos/fcitx5.nix
+    ../../modules/nixos/zsh.nix
+    ../../modules/nixos/adb.nix
   ];
 
   # Disable TPM (firmware bug causes 90s boot timeout)
@@ -71,6 +73,7 @@
       "wheel"
       "input"
       "uinput"
+      "adbusers"
     ];
     packages = with pkgs; [
       calibre
@@ -111,8 +114,8 @@
 
   home-manager.users.bruno.imports = [
     inputs.noctalia.homeModules.default
-    ../../modules/home/niri.nix
-    ../../modules/home/noctalia.nix
+    ../../modules/home-manager/niri.nix
+    ../../modules/home-manager/noctalia.nix
   ];
 
   # Steam

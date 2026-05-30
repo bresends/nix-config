@@ -8,14 +8,14 @@
 
 {
   imports = [
-    ../../modules/home/development.nix
-    ../../modules/home/direnv.nix
-    ../../modules/home/git.nix
-    ../../modules/home/lazygit.nix
-    ../../modules/home/neovim.nix
-    ../../modules/home/starship.nix
-    ../../modules/home/tmux.nix
-    ../../modules/home/zsh.nix
+    ../../modules/home-manager/development.nix
+    ../../modules/home-manager/direnv.nix
+    ../../modules/home-manager/git.nix
+    ../../modules/home-manager/lazygit.nix
+    ../../modules/home-manager/neovim.nix
+    ../../modules/home-manager/starship.nix
+    ../../modules/home-manager/tmux.nix
+    ../../modules/home-manager/zsh.nix
   ];
 
   home.username = "bruno";

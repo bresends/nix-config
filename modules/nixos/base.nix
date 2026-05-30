@@ -20,9 +20,6 @@
   };
   nix.settings.auto-optimise-store = true;
 
-  # Passwordless sudo for wheel users
-  security.sudo.wheelNeedsPassword = false;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -31,14 +28,6 @@
 
   # Enable Network Manager
   networking.networkmanager.enable = true;
-
-  # Default shell
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
-
-  # Android Debug Bridge
-  programs.adb.enable = true;
-  users.users.bruno.extraGroups = [ "adbusers" ];
 
   # System state version
   system.stateVersion = "25.05";

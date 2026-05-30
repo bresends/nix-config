@@ -12,6 +12,7 @@
     ../../modules/nixos/tailscale.nix
     ../../modules/nixos/no-sleep.nix
     ../../modules/nixos/samba.nix
+    ../../modules/nixos/zsh.nix
   ];
 
   # Hostname

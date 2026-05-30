@@ -43,7 +43,7 @@
             {
               home-manager = {
                 extraSpecialArgs = { inherit inputs pkgs-unstable llm-agents; };
-                users.bruno = import ./modules/home/common.nix;
+                users.bruno = import ./modules/home-manager/common.nix;
               };
             }
           ];
@@ -71,7 +71,7 @@
             {
               home-manager = {
                 extraSpecialArgs = { inherit inputs pkgs-unstable llm-agents; };
-                users.bruno = import ./modules/home/common.nix;
+                users.bruno = import ./modules/home-manager/common.nix;
               };
             }
           ];
