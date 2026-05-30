@@ -84,6 +84,11 @@
     xwayland-satellite
   ];
 
+  # Fix Dolphin file associations when running KDE apps outside Plasma.
+  # https://github.com/NixOS/nixpkgs/issues/409986
+  environment.etc."xdg/menus/applications.menu".source =
+    ../../modules/nixos/dolphin.menu;
+
   # Desktop
   # Niri's module enables system portals, polkit, keyring, and session packages.
   programs.niri = {
