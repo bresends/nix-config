@@ -6,11 +6,12 @@
 }:
 
 let
-  # Monokai Pro colors
-  bg = "#2d2a2e";
-  fg = "#403E41";
-  muted = "#727072";
-  accent = "#FFD866";
+  inherit (config.colorScheme.colors) base00 base02 base03 base0A;
+
+  bg = "#${base00}";
+  fg = "#${base02}";
+  muted = "#${base03}";
+  accent = "#${base0A}";
 
   # Helper scripts for unicode chars (tmux strips backslashes from #() args)
   print-char = code: pkgs.writeShellScript "tmux-char" "printf '\\u${code}'";
