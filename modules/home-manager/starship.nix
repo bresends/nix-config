@@ -1,10 +1,20 @@
 { ... }:
 
+let
+  monokaiPro = (import ./colors.nix).monokaiPro;
+
+  langConfig = symbol: {
+    inherit symbol;
+    style = "bg:green";
+    format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)";
+  };
+in
 {
   programs.starship = {
     enable = true;
     settings = {
-      format = "[](peach)"
+      format =
+        "[](peach)"
         + "$os"
         + "$username"
         + "$directory"
@@ -98,53 +108,14 @@
         deleted = "✘\${count}";
       };
 
-      nodejs = {
-        symbol = "";
-        style = "bg:green";
-        format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)";
-      };
-
-      c = {
-        symbol = " ";
-        style = "bg:green";
-        format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)";
-      };
-
-      rust = {
-        symbol = "";
-        style = "bg:green";
-        format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)";
-      };
-
-      golang = {
-        symbol = "";
-        style = "bg:green";
-        format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)";
-      };
-
-      php = {
-        symbol = "";
-        style = "bg:green";
-        format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)";
-      };
-
-      java = {
-        symbol = " ";
-        style = "bg:green";
-        format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)";
-      };
-
-      kotlin = {
-        symbol = "";
-        style = "bg:green";
-        format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)";
-      };
-
-      haskell = {
-        symbol = "";
-        style = "bg:green";
-        format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)";
-      };
+      nodejs = langConfig "";
+      c = langConfig " ";
+      rust = langConfig "";
+      golang = langConfig "";
+      php = langConfig "";
+      java = langConfig " ";
+      kotlin = langConfig "";
+      haskell = langConfig "";
 
       python = {
         symbol = "";
@@ -156,13 +127,6 @@
         symbol = "";
         style = "bg:sapphire";
         format = "[[ $symbol( $context) ](fg:crust bg:sapphire)]($style)";
-      };
-
-      conda = {
-        symbol = "  ";
-        style = "fg:crust bg:sapphire";
-        format = "[$symbol$environment ]($style)";
-        ignore_base = false;
       };
 
       time = {
@@ -194,63 +158,17 @@
       };
 
       palettes = {
-        catppuccin_mocha = {
-          rosewater = "#f5e0dc";
-          flamingo = "#f2cdcd";
-          pink = "#f5c2e7";
-          mauve = "#cba6f7";
-          red = "#f38ba8";
-          maroon = "#eba0ac";
-          peach = "#fab387";
-          yellow = "#f9e2af";
-          green = "#a6e3a1";
-          teal = "#94e2d5";
-          sky = "#89dceb";
-          sapphire = "#74c7ec";
-          blue = "#89b4fa";
-          lavender = "#b4befe";
-          text = "#cdd6f4";
-          subtext1 = "#bac2de";
-          subtext0 = "#a6adc8";
-          overlay2 = "#9399b2";
-          overlay1 = "#7f849c";
-          overlay0 = "#6c7086";
-          surface2 = "#585b70";
-          surface1 = "#45475a";
-          surface0 = "#313244";
-          base = "#1e1e2e";
-          mantle = "#181825";
-          crust = "#11111b";
-        };
-
         monokai = {
-          rosewater = "#f4dbd6";
-          flamingo = "#f0c6c6";
-          pink = "#f5bde6";
-          mauve = "#c6a0f6";
-          red = "#FF6188";
-          maroon = "#ee99a0";
-          peach = "#FC9867";
-          yellow = "#FFD866";
-          green = "#A9DC76";
-          teal = "#8bd5ca";
-          sky = "#91d7e3";
-          sapphire = "#78DCE8";
-          blue = "#8aadf4";
-          lavender = "#b7bdf8";
-          text = "#cad3f5";
-          subtext1 = "#b8c0e0";
-          subtext0 = "#a5adcb";
-          overlay2 = "#939ab7";
-          overlay1 = "#8087a2";
-          overlay0 = "#6e738d";
-          surface2 = "#403E41";
-          surface1 = "#494d64";
-          surface0 = "#363a4f";
-          base = "#24273a";
-          mantle = "#1e2030";
-          crust = "#181926";
-          white = "#FCFCFA";
+          red = monokaiPro.UltraRed;
+          peach = monokaiPro.AtomicTangerine;
+          yellow = monokaiPro.Sunglow;
+          green = monokaiPro.YellowGreen;
+          sapphire = monokaiPro.TurquoiseBlue;
+          lavender = monokaiPro.MediumPurple;
+          surface2 = monokaiPro.Onyx;
+          base = monokaiPro.Blackcurrant;
+          crust = monokaiPro.EerieBlack;
+          white = monokaiPro.WhiteSmoke;
         };
       };
     };
