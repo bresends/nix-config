@@ -19,6 +19,7 @@ let
     ripgrep
     rsync
     zoxide
+    jq
   ];
 
   runtimes = with pkgs; [
@@ -61,12 +62,6 @@ let
     cpplint
   ];
 
-  pomodoroTools = with pkgs; [
-    timer
-    lolcat
-    libnotify
-  ];
-
   editors = [
     pkgs-unstable.vscode
   ];
@@ -87,7 +82,6 @@ in
     ++ languageServers
     ++ formatters
     ++ linters
-    ++ pomodoroTools
     ++ editors
     ++ aiTools;
 
