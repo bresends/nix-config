@@ -31,6 +31,7 @@
     mpv
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs-unstable.obsidian
+    playerctl
   ];
 
   home.sessionVariables = {

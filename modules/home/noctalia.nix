@@ -1,19 +1,12 @@
 { ... }:
 
+let
+  noctaliaState = builtins.fromJSON (builtins.readFile ./noctalia.json);
+in
+
 {
   programs.noctalia-shell = {
     enable = true;
-
-    settings = {
-      bar = {
-        density = "compact";
-        position = "top";
-      };
-
-      general = {
-        avatarImage = "/home/bruno/.face";
-        radiusRatio = 0.2;
-      };
-    };
+    settings = noctaliaState.settings;
   };
 }
