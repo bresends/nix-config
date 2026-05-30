@@ -20,6 +20,8 @@ let
     rsync
     zoxide
     jq
+    wl-clipboard
+    pastel
   ];
 
   runtimes = with pkgs; [
