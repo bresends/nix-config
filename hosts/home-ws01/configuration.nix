@@ -115,7 +115,7 @@
   home-manager.users.bruno.imports = [
     inputs.noctalia.homeModules.default
     ../../modules/home-manager/niri.nix
-    ../../modules/home-manager/noctalia
+    ../../modules/home-manager/noctalia.nix
   ];
 
   # Steam

@@ -1,7 +1,7 @@
 { ... }:
 
 let
-  noctaliaState = builtins.fromJSON (builtins.readFile ./noctalia.json);
+  noctaliaState = builtins.fromJSON (builtins.readFile ./noctalia/noctalia.json);
 in
 
 {
@@ -11,5 +11,5 @@ in
   };
 
   home.file.".config/noctalia/colorschemes/Monokai/Monokai.json".source =
-    ./noctalia-colorschemes/Monokai.json;
+    ./noctalia/noctalia-colorschemes/Monokai.json;
 }
