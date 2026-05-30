@@ -6,7 +6,7 @@
 }:
 
 let
-  inherit (config.colorScheme.colors) base00 base02 base03 base0A;
+  inherit (config.colorScheme.palette) base00 base02 base03 base0A;
 
   bg = "#${base00}";
   fg = "#${base02}";
