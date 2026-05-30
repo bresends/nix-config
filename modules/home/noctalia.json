@@ -16,7 +16,7 @@
       "enableExclusionZoneInset": true,
       "backgroundOpacity": 0.8,
       "useSeparateOpacity": true,
-      "marginVertical": 4,
+      "marginVertical": 6,
       "marginHorizontal": 6,
       "frameThickness": 8,
       "frameRadius": 12,
@@ -27,17 +27,7 @@
       "autoShowDelay": 150,
       "showOnWorkspaceSwitch": true,
       "widgets": {
-        "left": [
-          {
-            "clockColor": "none",
-            "customFont": "",
-            "formatHorizontal": "ddd, dd MMM, HH:mm",
-            "formatVertical": "HH mm - dd MM",
-            "id": "Clock",
-            "tooltipFormat": "ddd, dd MMM, HH:mm",
-            "useCustomFont": false
-          }
-        ],
+        "left": [],
         "center": [
           {
             "characterCount": 2,
@@ -96,12 +86,21 @@
             "textColor": "none"
           },
           {
+            "clockColor": "none",
+            "customFont": "",
+            "formatHorizontal": "ddd, dd MMM, HH:mm",
+            "formatVertical": "HH mm - dd MM",
+            "id": "Clock",
+            "tooltipFormat": "ddd, dd MMM, HH:mm",
+            "useCustomFont": false
+          },
+          {
             "colorizeDistroLogo": false,
-            "colorizeSystemIcon": "none",
+            "colorizeSystemIcon": "error",
             "colorizeSystemText": "none",
             "customIconPath": "",
             "enableColorization": false,
-            "icon": "noctalia",
+            "icon": "3d-cube-sphere",
             "id": "ControlCenter",
             "useDistroLogo": false
           }
@@ -629,7 +628,7 @@
       }
     },
     "notificationsState": {
-      "lastSeenTs": 1780018619000
+      "lastSeenTs": 1780111645000
     },
     "changelogState": {
       "lastSeenVersion": "v4.7.8-git"
@@ -803,7 +802,7 @@
             "mOnError": "#282828",
             "mOnHover": "#282828",
             "mOnPrimary": "#282828",
-            "mOnSecondary": "#fcfcfa",
+            "mOnSecondary": "#282828",
             "mOnSurface": "#d4be98",
             "mOnSurfaceVariant": "#a89984",
             "mOnTertiary": "#282828",
@@ -1239,9 +1238,9 @@
         {
           "dark": {
             "mError": "#fb4934",
-            "mHover": "#403e41",
+            "mHover": "#83a598",
             "mOnError": "#282828",
-            "mOnHover": "#fcfcfa",
+            "mOnHover": "#282828",
             "mOnPrimary": "#282828",
             "mOnSecondary": "#282828",
             "mOnSurface": "#fbf1c7",
@@ -1249,7 +1248,7 @@
             "mOnTertiary": "#282828",
             "mOutline": "#57514e",
             "mPrimary": "#ebdbb2",
-            "mSecondary": "#403e41",
+            "mSecondary": "#8ec07c",
             "mShadow": "#282828",
             "mSurface": "#282828",
             "mSurfaceVariant": "#3c3836",
