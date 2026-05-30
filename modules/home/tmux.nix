@@ -85,6 +85,7 @@ in
 
       # Popups
       bind-key o switch-client -T open
+      bind-key -T open t display-popup -d "#{pane_current_path}" -w 70% -h 90% -E "${pkgs.zsh}/bin/zsh"
       bind-key -T open l display-popup -d "#{pane_current_path}" -w 70% -h 90% -E "lazygit"
 
       # Styling (Monokai Pro)
