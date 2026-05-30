@@ -1,17 +1,11 @@
 {
-  config,
   pkgs,
   lib,
   ...
 }:
 
 let
-  inherit (config.colorScheme.palette) base00 base02 base03 base0A;
-
-  bg = "#${base00}";
-  fg = "#${base02}";
-  muted = "#${base03}";
-  accent = "#${base0A}";
+  inherit (import ./colors.nix) bg fg muted accent;
 
   # Helper scripts for unicode chars (tmux strips backslashes from #() args)
   print-char = code: pkgs.writeShellScript "tmux-char" "printf '\\u${code}'";

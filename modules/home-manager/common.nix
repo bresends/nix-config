@@ -8,7 +8,6 @@
 
 {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
     ./development.nix
     ./direnv.nix
     ./ghostty.nix
@@ -19,8 +18,6 @@
     ./tmux.nix
     ./zsh.nix
   ];
-
-  colorScheme = inputs.nix-colors.colorSchemes.monokai;
 
   home.username = "bruno";
   home.homeDirectory = "/home/bruno";
