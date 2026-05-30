@@ -279,7 +279,7 @@ binds {
     Mod+D hotkey-overlay-title="Open Noctalia Launcher" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+E hotkey-overlay-title="Open File Explorer: Dolphin" { spawn "dolphin"; }
     Mod+N hotkey-overlay-title="Focus/Open Obsidian" { spawn-sh "id=$(niri msg --json windows | jq -r '.[] | select(.app_id == \"obsidian\") | .id' | head -n1); if [ -n \"$id\" ]; then niri msg action focus-window --id \"$id\"; else obsidian; fi"; }
-    Mod+P hotkey-overlay-title="Color Picker: hyprpicker" { spawn-sh "hyprpicker -a"; }
+    Mod+Shift+C hotkey-overlay-title="Color Picker: hyprpicker" { spawn-sh "hyprpicker -a -l"; }
     Super+Alt+L hotkey-overlay-title="Noctalia: Lock" { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
