@@ -33,6 +33,7 @@
     qview
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs-unstable.obsidian
+    hyprpicker
     playerctl
   ];
 
