@@ -7,19 +7,20 @@
 let
   monokaiPro = (import ./colors.nix).monokaiPro;
 
-  bg = monokaiPro.Onyx;
-  fg = monokaiPro.DarkCharcoal;
-  muted = monokaiPro.SonicSilver;
-  accent = monokaiPro.Sunglow;
+  bg = monokaiPro.EerieBlack;   # Darker background for status bar (#19181A)
+  activeBorder = monokaiPro.Sunglow; # Highlight active pane border (#FFD866)
 
-  # Helper scripts for unicode chars (tmux strips backslashes from #() args)
-  print-char = code: pkgs.writeShellScript "tmux-char" "printf '\\u${code}'";
-  ro = "#(${print-char "e0b6"})";
-  rc = "#(${print-char "e0b4"})";
-  clockIcon = "#(${print-char "e641"})";
-  pill =
-    color: content:
-    "#[bg=${bg},fg=${fg}]${ro}#[bg=${fg},fg=${color}]${content}#[bg=${bg},fg=${fg}]${rc}";
+  # Cozy Warm theme colors (Text-only)
+  sessionColor = monokaiPro.AtomicTangerine;
+  activeColor = monokaiPro.Sunglow;
+  inactiveColor = monokaiPro.SonicSilver;
+  uptimeColor = monokaiPro.UltraRed;
+
+  clockIcon = "󰥔";
+  sessionIcon = ""; # Solid 3D Cube (f1b2)
+
+  # Text-only pill (no capsule backgrounds or round caps)
+  pill = color: content: "#[bg=${bg},fg=${color}]${content}";
 
   tmux-uptime = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-uptime";
@@ -50,7 +51,7 @@ in
       {
         plugin = tmux-uptime;
         extraConfig = ''
-          set -g status-right "${pill accent "${clockIcon} #{uptime}"}"
+          set -g status-right "${pill uptimeColor "${clockIcon}  #{uptime}"} "
         '';
       }
       {
@@ -86,20 +87,20 @@ in
       bind-key -T open t display-popup -d "#{pane_current_path}" -w 70% -h 90% -E "${pkgs.zsh}/bin/zsh"
       bind-key -T open l display-popup -d "#{pane_current_path}" -w 70% -h 90% -E "lazygit"
 
-      # Styling (Monokai Pro)
-      set -g status-style "bg=${bg},fg=${fg}"
-      set -g pane-border-style "fg=${fg}"
-      set -g pane-active-border-style "fg=${fg}"
+      # Styling (Monokai Pro Cozy Warm - Text Only)
+      set -g status-style "bg=${bg},fg=${inactiveColor}"
+      set -g pane-border-style "fg=${monokaiPro.Onyx}"
+      set -g pane-active-border-style "fg=${activeBorder}"
       set -g status-left-length 100
       set -g status-right-length 100
       set -g status-justify "absolute-centre"
       set -g window-status-separator " "
 
-      set -g status-left "${pill accent "#S"}"
+      set -g status-left " ${pill sessionColor "${sessionIcon}  #S"}"
 
-      set -g window-status-current-format "${pill accent " #I "}"
+      set -g window-status-current-format "${pill activeColor "#I:#W"}"
 
-      set -g window-status-format "${pill muted " #I "}"
+      set -g window-status-format "${pill inactiveColor "#I:#W"}"
 
     '';
   };

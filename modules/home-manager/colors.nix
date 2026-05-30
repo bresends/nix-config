@@ -4,6 +4,7 @@
   monokaiPro = {
     EerieBlack = "#19181a";
     DarkCharcoal = "#221f22";
+    Blackcurrant = "#2d2a2e"; # Theme background color
     UltraRed = "#ff6188";
     YellowGreen = "#a9dc76";
     Sunglow = "#ffd866";
