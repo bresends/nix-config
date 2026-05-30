@@ -5,15 +5,18 @@
 }:
 
 let
-  inherit (import ./colors.nix) bg fg muted accent;
+  monokaiPro = (import ./colors.nix).monokaiPro;
+
+  bg = monokaiPro.Onyx;
+  fg = monokaiPro.DarkCharcoal;
+  muted = monokaiPro.SonicSilver;
+  accent = monokaiPro.Sunglow;
 
   # Helper scripts for unicode chars (tmux strips backslashes from #() args)
   print-char = code: pkgs.writeShellScript "tmux-char" "printf '\\u${code}'";
   ro = "#(${print-char "e0b6"})";
   rc = "#(${print-char "e0b4"})";
   clockIcon = "#(${print-char "e641"})";
-  hostIcon = "#(${print-char "f4a9"})";
-
   pill =
     color: content:
     "#[bg=${bg},fg=${fg}]${ro}#[bg=${fg},fg=${color}]${content}#[bg=${bg},fg=${fg}]${rc}";
@@ -47,7 +50,7 @@ in
       {
         plugin = tmux-uptime;
         extraConfig = ''
-          set -g status-right "${pill accent "${clockIcon} #{uptime}"} ${pill accent "${hostIcon} #H"}"
+          set -g status-right "${pill accent "${clockIcon} #{uptime}"}"
         '';
       }
       {
