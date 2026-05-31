@@ -29,6 +29,11 @@
   # Enable Network Manager
   networking.networkmanager.enable = true;
 
+  # Fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
   # System state version
   system.stateVersion = "25.05";
 }
