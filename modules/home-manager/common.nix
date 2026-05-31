@@ -10,6 +10,7 @@
   imports = [
     ./development.nix
     ./direnv.nix
+    ./fuzzel.nix
     ./ghostty.nix
     ./git.nix
     ./lazygit.nix
