@@ -3,6 +3,7 @@
 {
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     settings = {
       "oracle-inys-micro-sp-alpha" = {
         HostName = "oracle-inys-micro-sp-alpha";

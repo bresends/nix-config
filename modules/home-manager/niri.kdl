@@ -269,7 +269,7 @@ window-rule {
 // Open the qView image viewer in fullscreen by default.
 window-rule {
     match app-id=r#"^com\.interversehq\.qView$"#
-    open-fullscreen true
+    open-maximized true
 }
 
 
