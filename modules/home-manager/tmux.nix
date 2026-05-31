@@ -7,24 +7,22 @@
 let
   monokaiPro = (import ./colors.nix).monokaiPro;
 
-  bg = monokaiPro.Blackcurrant; # Blends with Ghostty background (#2D2A2E)
+  bg = "default"; # Let Ghostty's transparent background show through.
   activeBorder = monokaiPro.Sunglow; # Highlight active pane border (#FFD866)
 
-  # Pill default dark background and yellow text
-  pillBgDefault = monokaiPro.Onyx; # (#403E41)
-  pillFgDefault = monokaiPro.Sunglow; # Yellow text color (#FFD866)
-
-  # Active window bright yellow background and dark text
-  activeBg = monokaiPro.Sunglow; # (#FFD866)
-  activeFg = monokaiPro.EerieBlack; # (#19181A)
+  sessionBg = monokaiPro.YellowGreen;
+  inactiveBg = monokaiPro.Sunglow;
+  activeBg = monokaiPro.AtomicTangerine;
+  uptimeBg = monokaiPro.UltraRed;
+  pillFg = monokaiPro.EerieBlack;
 
   ro = "";
   rc = "";
   clockIcon = "󰥔";
   sessionIcon = ""; # Solid 3D Cube (f1b2)
   pill =
-    pillBg: pillFg: content:
-    "#[bg=${bg},fg=${pillBg}]${ro}#[bg=${pillBg},fg=${pillFg}]${content}#[bg=${bg},fg=${pillBg}]${rc}";
+    pillBg: content:
+    "#[bg=default,fg=${pillBg}]${ro}#[bg=${pillBg},fg=${pillFg},bold]${content}#[bg=default,fg=${pillBg}]${rc}";
 
   tmux-uptime = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-uptime";
@@ -55,7 +53,7 @@ in
       {
         plugin = tmux-uptime;
         extraConfig = ''
-          set -g status-right "${pill pillBgDefault pillFgDefault "${clockIcon} #{uptime}"}"
+          set -g status-right "${pill uptimeBg "${clockIcon} #{uptime}"}"
         '';
       }
       {
@@ -93,19 +91,19 @@ in
       bind-key -T open l display-popup -d "#{pane_current_path}" -w 70% -h 90% -E "lazygit"
 
       # Styling (Monokai Pro)
-      set -g status-style "bg=${bg},fg=${pillFgDefault}"
-      set -g pane-border-style "fg=${pillBgDefault}"
+      set -g status-style "bg=${bg},fg=${pillFg}"
+      set -g pane-border-style "fg=${monokaiPro.Blackcurrant}"
       set -g pane-active-border-style "fg=${activeBorder}"
       set -g status-left-length 100
       set -g status-right-length 100
-      set -g status-justify "absolute-centre"
+      set -g status-justify "centre"
       set -g window-status-separator " "
 
-      set -g status-left "${pill pillBgDefault pillFgDefault "${sessionIcon} #S"}"
+      set -g status-left "${pill sessionBg "${sessionIcon} #S"}"
 
-      set -g window-status-current-format "${pill activeBg activeFg "#I:#W"}"
+      set -g window-status-current-format "${pill activeBg "#I:#W"}"
 
-      set -g window-status-format "${pill pillBgDefault pillFgDefault "#I:#W"}"
+      set -g window-status-format "${pill inactiveBg "#I:#W"}"
 
     '';
   };
