@@ -7,20 +7,24 @@
 let
   monokaiPro = (import ./colors.nix).monokaiPro;
 
-  bg = monokaiPro.EerieBlack;   # Darker background for status bar (#19181A)
+  bg = monokaiPro.Blackcurrant;   # Blends with Ghostty background (#2D2A2E)
   activeBorder = monokaiPro.Sunglow; # Highlight active pane border (#FFD866)
 
-  # Cozy Warm theme colors (Text-only)
-  sessionColor = monokaiPro.AtomicTangerine;
-  activeColor = monokaiPro.Sunglow;
-  inactiveColor = monokaiPro.SonicSilver;
-  uptimeColor = monokaiPro.UltraRed;
+  # Pill default dark background and yellow text
+  pillBgDefault = monokaiPro.Onyx;         # (#403E41)
+  pillFgDefault = monokaiPro.Sunglow;       # Yellow text color (#FFD866)
 
+  # Active window bright yellow background and dark text
+  activeBg = monokaiPro.Sunglow;      # (#FFD866)
+  activeFg = monokaiPro.EerieBlack;    # (#19181A)
+
+  ro = "";
+  rc = "";
   clockIcon = "󰥔";
   sessionIcon = ""; # Solid 3D Cube (f1b2)
-
-  # Text-only pill (no capsule backgrounds or round caps)
-  pill = color: content: "#[bg=${bg},fg=${color}]${content}";
+  pill =
+    pillBg: pillFg: content:
+    "#[bg=${bg},fg=${pillBg}]${ro}#[bg=${pillBg},fg=${pillFg}]${content}#[bg=${bg},fg=${pillBg}]${rc}";
 
   tmux-uptime = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-uptime";
@@ -51,7 +55,7 @@ in
       {
         plugin = tmux-uptime;
         extraConfig = ''
-          set -g status-right "${pill uptimeColor "${clockIcon}  #{uptime}"} "
+          set -g status-right "${pill pillBgDefault pillFgDefault "${clockIcon} #{uptime}"}"
         '';
       }
       {
@@ -87,20 +91,20 @@ in
       bind-key -T open t display-popup -d "#{pane_current_path}" -w 70% -h 90% -E "${pkgs.zsh}/bin/zsh"
       bind-key -T open l display-popup -d "#{pane_current_path}" -w 70% -h 90% -E "lazygit"
 
-      # Styling (Monokai Pro Cozy Warm - Text Only)
-      set -g status-style "bg=${bg},fg=${inactiveColor}"
-      set -g pane-border-style "fg=${monokaiPro.Onyx}"
+      # Styling (Monokai Pro)
+      set -g status-style "bg=${bg},fg=${pillFgDefault}"
+      set -g pane-border-style "fg=${pillBgDefault}"
       set -g pane-active-border-style "fg=${activeBorder}"
       set -g status-left-length 100
       set -g status-right-length 100
       set -g status-justify "absolute-centre"
       set -g window-status-separator " "
 
-      set -g status-left " ${pill sessionColor "${sessionIcon}  #S"}"
+      set -g status-left " ${pill pillBgDefault pillFgDefault "${sessionIcon} #S"}"
 
-      set -g window-status-current-format "${pill activeColor "#I:#W"}"
+      set -g window-status-current-format "${pill activeBg activeFg "#I:#W"}"
 
-      set -g window-status-format "${pill inactiveColor "#I:#W"}"
+      set -g window-status-format "${pill pillBgDefault pillFgDefault "#I:#W"}"
 
     '';
   };
