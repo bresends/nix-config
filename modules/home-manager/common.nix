@@ -17,6 +17,7 @@
     ./mpv.nix
     ./neovim.nix
     ./scripts.nix
+    ./ssh.nix
     ./starship.nix
     ./tmux.nix
     ./zsh.nix
