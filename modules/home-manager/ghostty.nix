@@ -5,6 +5,7 @@
     enable = true;
     settings = {
       theme = "Monokai Pro";
+      font-family = "JetBrainsMonoNL Nerd Font";
       background-opacity = 0.85;
       confirm-close-surface = false;
       app-notifications = "no-clipboard-copy";
