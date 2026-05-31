@@ -18,7 +18,7 @@
   ];
 
   # Hostname
-  networking.hostName = "nixos";
+  networking.hostName = "8bbm-sgp-ws01";
 
   # Static IP configuration
   networking.interfaces.enp0s31f6 = {

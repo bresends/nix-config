@@ -10,7 +10,7 @@ in
     enable = true;
     settings = {
       main = {
-        font = "Sans Serif:size=14";
+        font = "JetBrainsMonoNL Nerd Font:size=14";
         terminal = "${pkgs.ghostty}/bin/ghostty";
         prompt = "❯   ";
         width = 40;
@@ -23,6 +23,7 @@ in
         background = toFuzzelColor monokaiPro.Blackcurrant;
         text = toFuzzelColor monokaiPro.WhiteSmoke;
         input = toFuzzelColor monokaiPro.WhiteSmoke;
+        prompt = toFuzzelColor monokaiPro.MediumPurple;
         match = toFuzzelColor monokaiPro.AtomicTangerine;
         selection = toFuzzelColor monokaiPro.EerieBlack;
         selection-text = toFuzzelColor monokaiPro.WhiteSmoke;

@@ -22,6 +22,7 @@ let
     jq
     wl-clipboard
     pastel
+    nerd-fonts.jetbrains-mono
   ];
 
   runtimes = with pkgs; [

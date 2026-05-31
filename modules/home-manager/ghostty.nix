@@ -4,6 +4,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
+      font-family = "JetBrainsMonoNL Nerd Font";
       theme = "Monokai Pro";
       confirm-close-surface = false;
       app-notifications = "no-clipboard-copy";
@@ -13,3 +14,4 @@
     };
   };
 }
+

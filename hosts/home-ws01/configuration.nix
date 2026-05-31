@@ -31,7 +31,7 @@
   ];
 
   # Hostname
-  networking.hostName = "nixos";
+  networking.hostName = "home-ws01";
 
   # Locale configuration
   myLocale = {

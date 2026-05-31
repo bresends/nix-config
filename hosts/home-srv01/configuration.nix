@@ -16,7 +16,7 @@
   ];
 
   # Hostname
-  networking.hostName = "nixos";
+  networking.hostName = "home-srv01";
 
   # Static IP configuration
   networking.interfaces.enp0s31f6 = {

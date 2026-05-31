@@ -3,11 +3,17 @@ set -euo pipefail
 
 flake_dir="${HOME}/dev/nix-config"
 
-choice=$(printf 'Suspend\nShutdown\nUpdate System\nRebuild System' | fuzzel --dmenu --prompt="Power: ")
+choice=$(fuzzel --dmenu --prompt="Power: " <<EOF
+󰏗  NixOS - Update System
+󰜉  NixOS - Rebuild System
+󰤄  Suspend
+󰐥  Shutdown
+EOF
+)
 
 case "$choice" in
-    Suspend) systemctl suspend ;;
-    Shutdown) systemctl poweroff ;;
-    "Update System") ghostty -e bash -c "cd $flake_dir && nix flake update; echo; echo 'Done. Press Enter to close.'; read" ;;
-    "Rebuild System") ghostty -e bash -c "sudo nixos-rebuild switch --flake $flake_dir#$(hostname); echo; echo 'Done. Press Enter to close.'; read" ;;
+    "󰤄  Suspend") systemctl suspend ;;
+    "󰐥  Shutdown") systemctl poweroff ;;
+    "󰏗  NixOS - Update System") ghostty -e bash -c "cd $flake_dir && nix flake update; echo; echo 'Done. Press Enter to close.'; read" ;;
+    "󰜉  NixOS - Rebuild System") ghostty -e bash -c "sudo nixos-rebuild switch --flake $flake_dir#$(hostname); echo; echo 'Done. Press Enter to close.'; read" ;;
 esac
