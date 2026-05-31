@@ -27,5 +27,5 @@
   programs.home-manager.enable = true;
 
   # Match the version from your other configurations
-  home.stateVersion = "25.05";
+  home.stateVersion = "26.05";
 }

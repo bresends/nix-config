@@ -56,7 +56,7 @@ let
     prettierd
     ruff
     fixjson
-    nixfmt-rfc-style
+    nixfmt
   ];
 
   linters = with pkgs; [
@@ -74,7 +74,7 @@ let
     llm-agents.pi
     llm-agents.opencode
     llm-agents.codex
-    llm-agents.antigravity
+    llm-agents.antigravity-cli
   ];
 in
 {

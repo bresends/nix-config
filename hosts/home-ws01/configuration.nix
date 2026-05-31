@@ -19,7 +19,6 @@
     ../../modules/nixos/onlyoffice.nix
     ../../modules/nixos/fcitx5.nix
     ../../modules/nixos/zsh.nix
-    ../../modules/nixos/adb.nix
   ];
 
   # Disable TPM (firmware bug causes 90s boot timeout)
@@ -73,7 +72,6 @@
       "wheel"
       "input"
       "uinput"
-      "adbusers"
     ];
     packages = with pkgs; [
       calibre
