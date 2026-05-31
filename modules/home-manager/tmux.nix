@@ -7,16 +7,16 @@
 let
   monokaiPro = (import ./colors.nix).monokaiPro;
 
-  bg = monokaiPro.Blackcurrant;   # Blends with Ghostty background (#2D2A2E)
+  bg = monokaiPro.Blackcurrant; # Blends with Ghostty background (#2D2A2E)
   activeBorder = monokaiPro.Sunglow; # Highlight active pane border (#FFD866)
 
   # Pill default dark background and yellow text
-  pillBgDefault = monokaiPro.Onyx;         # (#403E41)
-  pillFgDefault = monokaiPro.Sunglow;       # Yellow text color (#FFD866)
+  pillBgDefault = monokaiPro.Onyx; # (#403E41)
+  pillFgDefault = monokaiPro.Sunglow; # Yellow text color (#FFD866)
 
   # Active window bright yellow background and dark text
-  activeBg = monokaiPro.Sunglow;      # (#FFD866)
-  activeFg = monokaiPro.EerieBlack;    # (#19181A)
+  activeBg = monokaiPro.Sunglow; # (#FFD866)
+  activeFg = monokaiPro.EerieBlack; # (#19181A)
 
   ro = "";
   rc = "";
@@ -69,8 +69,9 @@ in
 
       # Terminal
       set-option -sa terminal-overrides ",xterm*:Tc"
+      set-option -sa terminal-features ",xterm*:extkeys"
       set-option -g renumber-windows on
-      set -g extended-keys on
+      set -s extended-keys always
 
       # Remaps
       bind-key c new-window -c "#{pane_current_path}"
@@ -100,7 +101,7 @@ in
       set -g status-justify "absolute-centre"
       set -g window-status-separator " "
 
-      set -g status-left " ${pill pillBgDefault pillFgDefault "${sessionIcon} #S"}"
+      set -g status-left "${pill pillBgDefault pillFgDefault "${sessionIcon} #S"}"
 
       set -g window-status-current-format "${pill activeBg activeFg "#I:#W"}"
 
