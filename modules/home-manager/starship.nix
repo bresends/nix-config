@@ -51,7 +51,7 @@ in
           Mint = "󰣭";
           Macos = "󰀵";
           Manjaro = "";
-          Linux = "󰌽";
+          Linux = "❄";
           Gentoo = "󰣨";
           Fedora = "󰣛";
           Alpine = "";
@@ -90,7 +90,8 @@ in
       git_branch = {
         symbol = "";
         style = "bg:yellow";
-        format = "[[$symbol $branch ](fg:crust bg:yellow)]($style)";
+        format = "[[ $symbol $branch ](fg:crust bg:yellow)]($style)";
+
       };
 
       git_status = {
