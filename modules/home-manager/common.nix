@@ -14,6 +14,7 @@
     ./ghostty.nix
     ./git.nix
     ./lazygit.nix
+    ./mpv.nix
     ./neovim.nix
     ./scripts.nix
     ./starship.nix
@@ -31,7 +32,6 @@
     kdePackages.dolphin
     kdePackages.kate
     keepassxc
-    mpv
     qview
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs-unstable.obsidian
