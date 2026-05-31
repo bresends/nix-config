@@ -2,8 +2,8 @@
 
 let
   monokaiPro = (import ./colors.nix).monokaiPro;
-  # Convert a hex color like "#19181a" to Fuzzel's RRGGBBAA format: "19181aff"
   toFuzzelColor = hex: (builtins.substring 1 6 hex) + "ff";
+  toFuzzelColorAlpha = hex: alpha: (builtins.substring 1 6 hex) + alpha;
 in
 {
   programs.fuzzel = {
@@ -20,7 +20,7 @@ in
         line-height = 24;
       };
       colors = {
-        background = toFuzzelColor monokaiPro.Blackcurrant;
+        background = toFuzzelColorAlpha monokaiPro.Blackcurrant "e6";
         text = toFuzzelColor monokaiPro.WhiteSmoke;
         input = toFuzzelColor monokaiPro.WhiteSmoke;
         prompt = toFuzzelColor monokaiPro.MediumPurple;

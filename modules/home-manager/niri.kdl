@@ -246,6 +246,17 @@ window-rule {
 }
 
 
+// Enable blur behind the fuzzel launcher.
+layer-rule {
+    match namespace="^launcher$"
+
+    geometry-corner-radius 8
+
+    background-effect {
+        blur true
+    }
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
