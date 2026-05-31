@@ -5,6 +5,7 @@
     enable = true;
     settings = {
       theme = "Monokai Pro";
+      background-opacity = 0.85;
       confirm-close-surface = false;
       app-notifications = "no-clipboard-copy";
       cursor-invert-fg-bg = true;

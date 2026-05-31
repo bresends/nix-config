@@ -230,6 +230,22 @@ window-rule {
     default-column-width {}
 }
 
+window-rule {
+    match app-id=r#"^com\.mitchellh\.ghostty$"#
+
+    border {
+        inactive-gradient from="rgba(36, 33, 36, 0.75)" to="rgba(40, 40, 40, 0.75)" angle=45 relative-to="workspace-view"
+    }
+
+    background-effect {
+        xray true
+        blur true
+        noise 0.01
+        saturation 1
+    }
+}
+
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
