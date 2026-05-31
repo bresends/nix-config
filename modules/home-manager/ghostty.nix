@@ -6,7 +6,7 @@
     settings = {
       theme = "Monokai Pro";
       font-family = "JetBrainsMonoNL Nerd Font";
-      background-opacity = 0.85;
+      background-opacity = 0.9;
       confirm-close-surface = false;
       app-notifications = "no-clipboard-copy";
       cursor-invert-fg-bg = true;

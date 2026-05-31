@@ -23,7 +23,7 @@ in
         background = toFuzzelColorAlpha monokaiPro.Blackcurrant "e6";
         text = toFuzzelColor monokaiPro.WhiteSmoke;
         input = toFuzzelColor monokaiPro.WhiteSmoke;
-        prompt = toFuzzelColor monokaiPro.MediumPurple;
+        prompt = toFuzzelColor monokaiPro.UltraRed;
         match = toFuzzelColor monokaiPro.AtomicTangerine;
         selection = toFuzzelColor monokaiPro.EerieBlack;
         selection-text = toFuzzelColor monokaiPro.WhiteSmoke;

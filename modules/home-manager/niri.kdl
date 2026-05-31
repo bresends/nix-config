@@ -266,10 +266,10 @@ window-rule {
     open-floating true
 }
 
-// Open the qView image viewer in fullscreen by default.
+// Open the qView image viewer as floating in the center of the screen by default.
 window-rule {
     match app-id=r#"^com\.interversehq\.qView$"#
-    open-maximized true
+    open-floating true
 }
 
 
