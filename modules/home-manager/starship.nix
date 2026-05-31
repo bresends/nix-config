@@ -42,6 +42,7 @@ in
       os = {
         disabled = false;
         style = "bg:peach fg:crust";
+        format = "[$symbol]($style)";
         symbols = {
           Windows = "󰍲";
           Ubuntu = "󰕈";
@@ -89,7 +90,7 @@ in
       git_branch = {
         symbol = "";
         style = "bg:yellow";
-        format = "[[ $symbol $branch ](fg:crust bg:yellow)]($style)";
+        format = "[[$symbol $branch ](fg:crust bg:yellow)]($style)";
       };
 
       git_status = {
