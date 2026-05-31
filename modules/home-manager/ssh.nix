@@ -3,22 +3,22 @@
 {
   programs.ssh = {
     enable = true;
-    matchBlocks = {
+    settings = {
       "oracle-inys-micro-sp-alpha" = {
-        hostname = "oracle-inys-micro-sp-alpha";
-        user = "bruno";
+        HostName = "oracle-inys-micro-sp-alpha";
+        User = "bruno";
       };
       "oracle-inys-micro-sp-bravo" = {
-        hostname = "oracle-inys-micro-sp-bravo";
-        user = "bruno";
+        HostName = "oracle-inys-micro-sp-bravo";
+        User = "bruno";
       };
       "oracle-bruno-micro-sp-alpha" = {
-        hostname = "oracle-bruno-micro-sp-alpha";
-        user = "bruno";
+        HostName = "oracle-bruno-micro-sp-alpha";
+        User = "bruno";
       };
       "oracle-bruno-ampere-sp-alpha" = {
-        hostname = "oracle-bruno-ampere-sp-alpha";
-        user = "bruno";
+        HostName = "oracle-bruno-ampere-sp-alpha";
+        User = "bruno";
       };
     };
   };
