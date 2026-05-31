@@ -74,7 +74,7 @@ in
 
       directory = {
         style = "bg:peach fg:crust";
-        format = "[ $path ]($style)";
+        format = "[$path ]($style)";
         truncation_length = 3;
         truncation_symbol = "/";
         substitutions = {
