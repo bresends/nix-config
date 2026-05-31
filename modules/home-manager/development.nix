@@ -23,6 +23,7 @@ let
     wl-clipboard
     pastel
     nerd-fonts.jetbrains-mono
+    tree-sitter
   ];
 
   runtimes = with pkgs; [
