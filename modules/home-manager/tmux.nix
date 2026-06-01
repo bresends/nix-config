@@ -18,7 +18,7 @@ let
 
   ro = "";
   rc = "";
-  clockIcon = "󰥔";
+  clockIcon = "󱫠";
   sessionIcon = ""; # Solid 3D Cube (f1b2)
   pill =
     pillBg: content:
