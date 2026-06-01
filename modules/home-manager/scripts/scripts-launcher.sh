@@ -16,6 +16,7 @@ case "$choice" in
     "󰐥  Shutdown") systemctl poweroff ;;
     "󰏗  Update System") 
         (
+            notify-send "System Update" "Starting flake update in the background..."
             cd "$flake_dir"
             if nix flake update; then
                 git add flake.lock
