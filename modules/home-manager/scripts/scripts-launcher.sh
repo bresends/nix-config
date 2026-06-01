@@ -4,16 +4,26 @@ set -euo pipefail
 flake_dir="${HOME}/dev/nix-config"
 
 choice=$(fuzzel --dmenu --prompt="Run: " <<EOF
-󰏗  Update System
 󰜉  Rebuild System
-󰤄  Suspend
+󰏗  Update System
+  Garbage Collect
+  Suspend
 󰐥  Shutdown
 EOF
 )
 
 case "$choice" in
-    "󰤄  Suspend") systemctl suspend ;;
+    "  Suspend") systemctl suspend ;;
     "󰐥  Shutdown") systemctl poweroff ;;
+    "  Garbage Collect")
+        (
+            if nix-collect-garbage -d; then
+                notify-send -t 2000 "Nix GC" "Garbage collection complete!"
+            else
+                notify-send -t 2000 "Nix GC" "Garbage collection failed!" --urgency=critical
+            fi
+        ) & disown
+        ;;
     "󰏗  Update System") 
         (
             notify-send -t 2000 "System Update" "Starting flake update in the background..."
