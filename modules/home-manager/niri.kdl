@@ -250,7 +250,7 @@ window-rule {
 layer-rule {
     match namespace="^launcher$"
 
-    geometry-corner-radius 8
+    geometry-corner-radius 12
 
     background-effect {
         blur true

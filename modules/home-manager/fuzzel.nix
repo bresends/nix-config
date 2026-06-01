@@ -12,7 +12,7 @@ in
       main = {
         font = "JetBrainsMonoNL Nerd Font:size=14";
         terminal = "${pkgs.ghostty}/bin/ghostty";
-        prompt = " ";
+        prompt = "\" \"";
         width = 40;
         horizontal-pad = 20;
         vertical-pad = 16;
@@ -23,12 +23,12 @@ in
         background = toFuzzelColorAlpha monokaiPro.Blackcurrant "e6";
         text = toFuzzelColor monokaiPro.WhiteSmoke;
         input = toFuzzelColor monokaiPro.WhiteSmoke;
-        prompt = toFuzzelColor monokaiPro.UltraRed;
-        match = toFuzzelColor monokaiPro.AtomicTangerine;
-        selection = toFuzzelColor monokaiPro.EerieBlack;
-        selection-text = toFuzzelColor monokaiPro.WhiteSmoke;
-        selection-match = toFuzzelColor monokaiPro.Sunglow;
-        border = toFuzzelColor monokaiPro.MediumPurple;
+        prompt = toFuzzelColor monokaiPro.Sunglow;
+        match = toFuzzelColor monokaiPro.Sunglow;
+        selection = toFuzzelColor monokaiPro.Sunglow;
+        selection-text = toFuzzelColor monokaiPro.Onyx;
+        selection-match = toFuzzelColor monokaiPro.EerieBlack;
+        border = "7fc8ffff";
       };
       border = {
         width = 2;
