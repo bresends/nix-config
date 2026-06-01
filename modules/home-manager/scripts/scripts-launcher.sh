@@ -3,7 +3,7 @@ set -euo pipefail
 
 flake_dir="${HOME}/dev/nix-config"
 
-choice=$(fuzzel --dmenu --prompt="Run: " <<EOF
+choice=$(fuzzel --dmenu <<EOF
 󰜉  Rebuild System
 󰏗  Update System
   Garbage Collect
