@@ -14,6 +14,20 @@ EOF
 case "$choice" in
     "󰤄  Suspend") systemctl suspend ;;
     "󰐥  Shutdown") systemctl poweroff ;;
-    "󰏗  Update System") ghostty -e bash -c "cd $flake_dir && nix flake update; echo; echo 'Done. Press Enter to close.'; read" ;;
+    "󰏗  Update System") 
+        (
+            cd "$flake_dir"
+            if nix flake update; then
+                git add flake.lock
+                if git commit -m "chore(system): update flake"; then
+                    notify-send "System Update" "Flake update complete and committed!"
+                else
+                    notify-send "System Update" "Flake updated, but git commit failed." --urgency=critical
+                fi
+            else
+                notify-send "System Update" "nix flake update failed!" --urgency=critical
+            fi
+        ) & disown
+        ;;
     "󰜉  Rebuild System") ghostty -e bash -c "sudo nixos-rebuild switch --flake $flake_dir#\$(hostname); echo; echo 'Done. Press Enter to close.'; read" ;;
 esac
