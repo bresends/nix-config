@@ -24,18 +24,6 @@ let
     pillBg: content:
     "#[bg=default,fg=${pillBg}]${ro}#[bg=${pillBg},fg=${pillFg},bold]${content}#[bg=default,fg=${pillBg}]${rc}";
 
-  tmux-uptime = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "tmux-uptime";
-    rtpFilePath = "uptime.tmux";
-    version = "unstable";
-    src = pkgs.fetchFromGitHub {
-      owner = "robhurring";
-      repo = "tmux-uptime";
-      rev = "master";
-      sha256 = "sha256-hKVx9MIpuoa0bnv6CsW2pD/kOmggbdBipyWj3pKMDR4=";
-    };
-  };
-
 in
 {
   programs.tmux = {
@@ -50,12 +38,6 @@ in
       sensible
       cpu
       vim-tmux-navigator
-      {
-        plugin = tmux-uptime;
-        extraConfig = ''
-          set -g status-right "${pill uptimeBg "${clockIcon} #{uptime}"}"
-        '';
-      }
       {
         plugin = resurrect;
         extraConfig = "set -g @resurrect-capture-pane-contents 'on'";
@@ -100,6 +82,7 @@ in
       set -g window-status-separator " "
 
       set -g status-left "${pill sessionBg "${sessionIcon} #S"}"
+      set -g status-right "${pill uptimeBg "${clockIcon} #(uptime | awk -F, '{print $1,$2}' | sed 's/:/h/g;s/^.*up *//; s/ *[0-9]* user.*//;s/[0-9]$/&m/;s/ day. */d/g')"}"
 
       set -g window-status-current-format "${pill activeBg "#I:#W"}"
 
