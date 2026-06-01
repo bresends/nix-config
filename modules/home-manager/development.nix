@@ -38,13 +38,13 @@ let
     firebase-tools
   ];
 
-  languageServers = with pkgs; [
+  lsp = with pkgs; [
     lua5_1
     luarocks
     lua-language-server
     vscode-langservers-extracted
-    tailwindcss-language-server
     emmet-ls
+    tailwindcss-language-server
     dockerfile-language-server
     biome
     markdown-oxide
@@ -79,14 +79,7 @@ let
 in
 {
   home.packages =
-    cliTools
-    ++ runtimes
-    ++ androidTools
-    ++ languageServers
-    ++ formatters
-    ++ linters
-    ++ editors
-    ++ aiTools;
+    cliTools ++ runtimes ++ androidTools ++ lsp ++ formatters ++ linters ++ editors ++ aiTools;
 
   services.ssh-agent.enable = true;
 }
