@@ -1,18 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  scriptDir = "${config.home.homeDirectory}/dev/scripts";
-
-  launcher = pkgs.writeShellScriptBin "scripts-launcher" ''
-    chosen=$(
-      find "${scriptDir}" -maxdepth 1 -name '*.sh' -print0 \
-        | xargs -0 -n1 basename \
-        | sed 's/\.sh$//' \
-        | sort \
-        | ${pkgs.fuzzel}/bin/fuzzel --dmenu --prompt="Scripts: "
-    )
-    [[ -n "$chosen" ]] && exec "${scriptDir}/$chosen.sh"
-  '';
+  launcher = pkgs.writeShellScriptBin "scripts-launcher" (builtins.readFile ./scripts/scripts-launcher.sh);
 in {
   home.packages = [ launcher ];
 
