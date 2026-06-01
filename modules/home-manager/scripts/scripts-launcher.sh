@@ -3,7 +3,7 @@ set -euo pipefail
 
 flake_dir="${HOME}/dev/nix-config"
 
-choice=$(fuzzel --dmenu <<EOF
+choice=$(vicinae dmenu --placeholder "Select Action" <<EOF
 󰜉  Rebuild System
 󰏗  Update System
   Garbage Collect
@@ -17,6 +17,7 @@ case "$choice" in
     "󰐥  Shutdown") systemctl poweroff ;;
     "  Garbage Collect")
         (
+            notify-send -t 2000 "Nix GC" "Starting garbage collection..."
             if nix-collect-garbage -d; then
                 notify-send -t 2000 "Nix GC" "Garbage collection complete!"
             else
