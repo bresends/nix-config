@@ -35,6 +35,7 @@
     keepassxc
     qview
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+    pkgs-unstable.vicinae
     pkgs-unstable.obsidian
     hyprpicker
     playerctl
