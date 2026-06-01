@@ -12,7 +12,7 @@ in
       main = {
         font = "JetBrainsMonoNL Nerd Font:size=14";
         terminal = "${pkgs.ghostty}/bin/ghostty";
-        prompt = "󰅂";
+        prompt = "";
         width = 40;
         horizontal-pad = 20;
         vertical-pad = 16;
