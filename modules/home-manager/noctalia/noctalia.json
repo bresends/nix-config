@@ -9,7 +9,7 @@
       "showOutline": false,
       "showCapsule": false,
       "capsuleOpacity": 1,
-      "capsuleColorKey": "none",
+      "capsuleColorKey": "secondary",
       "widgetSpacing": 6,
       "contentPadding": 0,
       "fontScale": 1,
@@ -596,7 +596,7 @@
       "notifyUpdates": true
     },
     "idle": {
-      "enabled": false,
+      "enabled": true,
       "screenOffTimeout": 600,
       "lockTimeout": 660,
       "suspendTimeout": 1800,
@@ -645,7 +645,7 @@
       }
     },
     "notificationsState": {
-      "lastSeenTs": 1780111645000
+      "lastSeenTs": 1780283726000
     },
     "changelogState": {
       "lastSeenVersion": "v4.7.8-git"
