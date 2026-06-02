@@ -27,15 +27,24 @@ case "$choice" in
         ;;
     "󰏗  Update System") 
         (
-            notify-send -t 2000 "System Update" "Starting flake update in the background..."
+            notify-send -t 2000 "System Update" "Starting flake and flatpak updates..."
+            
+            flatpak_success=true
+            if ! flatpak update -y; then
+                flatpak_success=false
+                notify-send -t 2000 "System Update" "Flatpak update failed!" --urgency=critical
+            fi
+
             cd "$flake_dir"
             if nix flake update; then
                 if git diff --quiet flake.lock; then
-                    notify-send -t 2000 "System Update" "Flake inputs are already up to date!"
+                    if [ "$flatpak_success" = true ]; then
+                        notify-send -t 2000 "System Update" "All updates complete! (Flake inputs were already up to date)"
+                    fi
                 else
                     git add flake.lock
                     if git commit -m "chore(system): update flake"; then
-                        notify-send -t 2000 "System Update" "Flake update complete and committed!"
+                        notify-send -t 2000 "System Update" "System updates complete and committed!"
                     else
                         notify-send -t 2000 "System Update" "Flake updated, but git commit failed." --urgency=critical
                     fi
