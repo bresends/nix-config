@@ -54,5 +54,5 @@ case "$choice" in
             fi
         ) & disown
         ;;
-    "󰜉  Rebuild System") ghostty -e bash -c "sudo nixos-rebuild switch --flake $flake_dir#\$(hostname); echo; echo 'Done. Press Enter to close.'; read" ;;
+    "󰜉  Rebuild System") ghostty -e bash -c "if sudo nixos-rebuild switch --flake $flake_dir#\$(hostname); then notify-send -t 3000 'NixOS Rebuild' 'Rebuild and switch successful!'; else notify-send -t 3000 'NixOS Rebuild' 'Rebuild failed!' --urgency=critical; fi; echo; echo 'Done. Press Enter to close.'; read" ;;
 esac
