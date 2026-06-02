@@ -39,9 +39,9 @@ let
   ];
 
   lsp = with pkgs; [
-    lua5_1
     luarocks
     lua-language-server
+    nixd
     vscode-langservers-extracted
     emmet-ls
     tailwindcss-language-server
