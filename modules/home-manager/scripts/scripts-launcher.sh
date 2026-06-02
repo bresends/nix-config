@@ -2,8 +2,17 @@
 set -euo pipefail
 
 flake_dir="${HOME}/dev/nix-config"
+notion_music_url="https://app.notion.com/p/brunoresende/Ouvir-a2223b1a75104c56a2bb88f1c94edc45"
+youtube_music_url="https://music.youtube.com"
+
+open_music_workspace() {
+    niri msg action focus-workspace 2
+    niri msg action spawn -- helium --new-window "$notion_music_url"
+    niri msg action spawn -- helium --new-window "$youtube_music_url"
+}
 
 choice=$(vicinae dmenu --placeholder "Select Action" <<EOF
+󰎈  Music
 󰜉  Rebuild System
 󰏗  Update System
   Garbage Collect
@@ -13,6 +22,7 @@ EOF
 )
 
 case "$choice" in
+    "󰎈  Music") open_music_workspace ;;
     "  Suspend") systemctl suspend ;;
     "󰐥  Shutdown") systemctl poweroff ;;
     "  Garbage Collect")
