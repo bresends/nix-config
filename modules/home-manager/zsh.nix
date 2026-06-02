@@ -14,6 +14,7 @@
       lg = "lazygit";
       vim = "nvim";
       tmux = "tmux attach 2>/dev/null || tmux";
+      nrs = "sudo nixos-rebuild switch --flake ~/dev/nix-config#\\$(hostname)";
     };
 
     history.ignoreDups = true;
