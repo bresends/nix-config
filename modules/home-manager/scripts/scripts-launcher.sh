@@ -12,10 +12,10 @@ open_music_workspace() {
 }
 
 choice=$(vicinae dmenu --placeholder "Select Action" <<EOF
-󰎈  Music
 󰜉  Rebuild System
 󰏗  Update System
   Garbage Collect
+󰎈  Music
   Suspend
 󰐥  Shutdown
 EOF
@@ -64,5 +64,5 @@ case "$choice" in
             fi
         ) & disown
         ;;
-    "󰜉  Rebuild System") ghostty -e bash -c "if sudo nixos-rebuild switch --flake $flake_dir#\$(hostname); then notify-send -t 3000 'NixOS Rebuild' 'Rebuild and switch successful!'; else notify-send -t 3000 'NixOS Rebuild' 'Rebuild failed!' --urgency=critical; fi; echo; echo 'Done. Press Enter to close.'; read" ;;
+    "󰜉  Rebuild System") ghostty -e bash -c "if sudo nixos-rebuild switch --flake $flake_dir#\$(hostname); then notify-send -t 3000 'NixOS Rebuild' 'Rebuild and switch successful!'; else notify-send -t 3000 'NixOS Rebuild' 'Rebuild failed!' --urgency=critical; fi" ;;
 esac
