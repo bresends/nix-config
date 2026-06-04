@@ -318,6 +318,7 @@ binds {
     Super+Alt+L hotkey-overlay-title="Noctalia: Lock" { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
     Mod+S hotkey-overlay-title="Scripts Launcher" { spawn "scripts-launcher"; }
     Mod+Y hotkey-overlay-title="Search YouTube" { spawn "youtube-search"; }
+    Mod+D hotkey-overlay-title="Open Bookmarks" { spawn "bookmarks"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
