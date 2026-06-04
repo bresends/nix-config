@@ -5,7 +5,6 @@ set -euo pipefail
 bookmarks_data=$(cat <<EOF
 ChatGPT | https://chatgpt.com
 Gmail | https://mail.google.com
-ChatGPT | https://chatgpt.com
 Google Calendar | https://calendar.google.com
 Bastter System | https://bastter.com/bs2
 FMHY Audio Ripping | https://fmhy.net/audio#audio-ripping
