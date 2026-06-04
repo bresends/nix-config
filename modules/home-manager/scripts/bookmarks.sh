@@ -3,6 +3,7 @@ set -euo pipefail
 
 # List of bookmarks (Format: Name | URL)
 bookmarks_data=$(cat <<EOF
+ChatGPT | https://chatgpt.com
 Gmail | https://mail.google.com
 ChatGPT | https://chatgpt.com
 Google Calendar | https://calendar.google.com
