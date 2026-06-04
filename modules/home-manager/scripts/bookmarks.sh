@@ -4,6 +4,7 @@ set -euo pipefail
 # List of bookmarks (Format: Name | URL)
 bookmarks_data=$(cat <<EOF
 Gmail | https://mail.google.com
+ChatGPT | https://chatgpt.com
 Google Calendar | https://calendar.google.com
 Bastter System | https://bastter.com/bs2
 FMHY Audio Ripping | https://fmhy.net/audio#audio-ripping
@@ -19,10 +20,14 @@ CBMGO Manuais | https://www.bombeiros.go.gov.br/legislacao/manuais-de-bombeiros/
 EOF
 )
 
-# Show menu
-selected=$(echo "$bookmarks_data" | vicinae dmenu --placeholder "Go to ")
+# Show menu (display names only)
+names=$(echo "$bookmarks_data" | cut -d'|' -f1 | sed 's/[[:space:]]*$//')
+selected=$(echo "$names" | vicinae dmenu --placeholder "Go to ")
 
 if [ -n "$selected" ]; then
-    url="${selected##* | }"
-    xdg-open "$url"
+    # Resolve URL from selected name
+    url=$(echo "$bookmarks_data" | grep -F "${selected} |" | cut -d'|' -f2- | sed 's/^[[:space:]]*//')
+    if [ -n "$url" ]; then
+        xdg-open "$url"
+    fi
 fi
