@@ -7,10 +7,10 @@
 
 {
   imports = [
-    inputs.niri.nixosModules.niri
     ./hardware-configuration.nix
     ../../modules/nixos/base.nix
     ../../modules/nixos/locale.nix
+    ../../modules/nixos/niri-desktop.nix
     ../../modules/nixos/audio.nix
     ../../modules/nixos/flatpak.nix
     ../../modules/nixos/tailscale.nix
@@ -87,34 +87,10 @@
 
   # Fix Dolphin file associations when running KDE apps outside Plasma.
   # https://github.com/NixOS/nixpkgs/issues/409986
-  environment.etc."xdg/menus/applications.menu".source =
-    ../../modules/nixos/dolphin.menu;
-
-  # Desktop
-  # Niri's module enables system portals, polkit, keyring, and session packages.
-  programs.niri = {
-    enable = true;
-    package = pkgs.niri;
-  };
+  environment.etc."xdg/menus/applications.menu".source = ../../modules/nixos/dolphin.menu;
 
   # Keep 32-bit graphics support for Steam/Wine games.
   hardware.graphics.enable32Bit = true;
-
-  # Use Ly as a lightweight TUI login manager and unlock GNOME Keyring at login.
-  services.displayManager.ly = {
-    enable = true;
-    x11Support = false;
-  };
-  security.pam.services.ly.enableGnomeKeyring = true;
-
-  # Route xdg-open through the configured desktop portal.
-  xdg.portal.xdgOpenUsePortal = true;
-
-  home-manager.users.bruno.imports = [
-    inputs.noctalia.homeModules.default
-    ../../modules/home-manager/niri.nix
-    ../../modules/home-manager/noctalia.nix
-  ];
 
   # Steam
   programs.steam = {

@@ -6,7 +6,7 @@
     ../../modules/nixos/base.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/audio.nix
-    ../../modules/nixos/kde-plasma.nix
+    ../../modules/nixos/niri-desktop.nix
     ../../modules/nixos/flatpak.nix
     ../../modules/nixos/fcitx5.nix
     ../../modules/nixos/tailscale.nix
