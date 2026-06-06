@@ -6,6 +6,8 @@ bookmarks_data=$(cat <<EOF
 ChatGPT | https://chatgpt.com
 Gmail | https://mail.google.com
 Google Calendar | https://calendar.google.com
+Github | https://github.com/bresends?tab=repositories
+Rai - Escala | https://escala.ssp.go.gov.br
 Bastter System | https://bastter.com/bs2
 FMHY Audio Ripping | https://fmhy.net/audio#audio-ripping
 Sonarr | http://sonarr.local.cbmgo.org
