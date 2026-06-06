@@ -20,6 +20,7 @@
     ./starship.nix
     ./tmux.nix
     ./zsh.nix
+    ./satty.nix
   ];
 
   home.username = "bruno";
