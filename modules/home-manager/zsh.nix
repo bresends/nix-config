@@ -10,7 +10,6 @@
     shellAliases = {
       ls = "ls --color=auto -lh";
       lsa = "ls --color=auto -lah";
-      ll = "ls -l";
       lg = "lazygit";
       vim = "nvim";
       tmux = "tmux attach 2>/dev/null || tmux";

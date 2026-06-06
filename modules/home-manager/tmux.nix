@@ -24,6 +24,11 @@ let
     pillBg: content:
     "#[bg=default,fg=${pillBg}]${ro}#[bg=${pillBg},fg=${pillFg},bold]${content}#[bg=default,fg=${pillBg}]${rc}";
 
+  # Comma-free variant for use inside tmux conditionals #{?...}
+  pillSafe =
+    pillBg: content:
+    "#[bg=default]#[fg=${pillBg}]${ro}#[bg=${pillBg}]#[fg=${pillFg}]#[bold]${content}#[bg=default]#[fg=${pillBg}]${rc}";
+
 in
 {
   programs.tmux = {
@@ -67,6 +72,9 @@ in
       bind-key -n M-p previous-window
       bind-key -n M-\; last-window
 
+      bind-key -n M-N swap-window -t +1\; select-window -t +1
+      bind-key -n M-P swap-window -t -1\; select-window -t -1
+
       # Popups
       bind-key o switch-client -T open
       bind-key -T open t display-popup -d "#{pane_current_path}" -w 70% -h 90% -E "${pkgs.zsh}/bin/zsh"
@@ -86,7 +94,12 @@ in
 
       set -g window-status-current-format "${pill activeBg "#I:#W"}"
 
-      set -g window-status-format "${pill inactiveBg "#I:#W"}"
+      set -g window-status-format "#{?window_bell_flag,${pillSafe uptimeBg "#I:#W"},${pillSafe inactiveBg "#I:#W"}}"
+
+      # Bell notifications
+      setw -g monitor-bell on
+      set -g bell-action other
+      setw -g window-status-bell-style default
 
     '';
   };
