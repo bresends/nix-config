@@ -19,6 +19,8 @@ in
     bookmarksScript
     screenshotAnnotate
     pkgs.libnotify
+    pkgs.grim
+    pkgs.slurp
   ];
 
   home.file."dev/scripts" = {
