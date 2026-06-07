@@ -19,6 +19,8 @@ CBMGO Contatos e Endereços | https://www.bombeiros.go.gov.br/acesso-a-informaca
 CBMGO Normas Administrativas | https://www.bombeiros.go.gov.br/legislacao/normas-administrativas-2.html
 CBMGO Normas Operacionais | https://www.bombeiros.go.gov.br/legislacao/normas-operacionais-administrativas/normas-operacionais-2.html
 CBMGO Manuais | https://www.bombeiros.go.gov.br/legislacao/manuais-de-bombeiros/manuais-de-bombeiros.html
+SEI - Escala | https://sei.go.gov.br/sei/controlador.php?acao=procedimento_trabalhar&id_procedimento=88711998
+SEI - Livro | https://sei.go.gov.br/sei/controlador.php?acao=procedimento_trabalhar&id_procedimento=88653034
 EOF
 )
 
