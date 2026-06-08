@@ -39,6 +39,7 @@
     pkgs-unstable.obsidian
     hyprpicker
     playerctl
+    yazi
   ];
 
   home.sessionVariables = {
