@@ -30,7 +30,7 @@
 
   home.packages = with pkgs; [
     bibata-cursors
-    kdePackages.dolphin
+    nautilus
     kdePackages.kate
     keepassxc
     qview

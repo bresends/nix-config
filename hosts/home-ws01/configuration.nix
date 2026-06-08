@@ -85,10 +85,6 @@
     xwayland-satellite
   ];
 
-  # Fix Dolphin file associations when running KDE apps outside Plasma.
-  # https://github.com/NixOS/nixpkgs/issues/409986
-  environment.etc."xdg/menus/applications.menu".source = ../../modules/nixos/dolphin.menu;
-
   # Keep 32-bit graphics support for Steam/Wine games.
   hardware.graphics.enable32Bit = true;
 
