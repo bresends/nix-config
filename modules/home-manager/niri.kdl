@@ -311,12 +311,11 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+B hotkey-overlay-title="Open Helium" { spawn "helium"; }
-    Mod+Space repeat=false hotkey-overlay-title="Open App Launcher: vicinae" { spawn "vicinae" "toggle"; }
+    Mod+P repeat=false hotkey-overlay-title="Open App Launcher: vicinae" { spawn "vicinae" "toggle"; }
     Mod+E hotkey-overlay-title="Open File Manager: yazi" { spawn "ghostty" "-e" "yazi"; }
-    Mod+N hotkey-overlay-title="Focus/Open Obsidian" { spawn-sh "id=$(niri msg --json windows | jq -r '.[] | select(.app_id == \"obsidian\") | .id' | head -n1); if [ -n \"$id\" ]; then niri msg action focus-window --id \"$id\"; else obsidian; fi"; }
+    Mod+O hotkey-overlay-title="Focus/Open Obsidian" { spawn-sh "id=$(niri msg --json windows | jq -r '.[] | select(.app_id == \"obsidian\") | .id' | head -n1); if [ -n \"$id\" ]; then niri msg action focus-window --id \"$id\"; else obsidian; fi"; }
     Mod+Shift+C hotkey-overlay-title="Color Picker: hyprpicker" { spawn-sh "hyprpicker -a -l"; }
-    Super+Alt+L hotkey-overlay-title="Noctalia: Lock" { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
-    Mod+S hotkey-overlay-title="Scripts Launcher" { spawn "scripts-launcher"; }
+    Mod+Space repeat=false hotkey-overlay-title="Scripts Launcher" { spawn "scripts-launcher"; }
     Mod+Y hotkey-overlay-title="Search YouTube" { spawn "youtube-search"; }
     Mod+D hotkey-overlay-title="Open Bookmarks" { spawn "bookmarks"; }
 
@@ -357,7 +356,7 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
+    Mod+Backslash repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
 
     Mod+H     { focus-column-left; }
