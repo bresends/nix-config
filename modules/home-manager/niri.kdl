@@ -321,10 +321,11 @@ binds {
     Mod+D hotkey-overlay-title="Open Bookmarks" { spawn "bookmarks"; }
 
 
-    Mod+Shift+S hotkey-overlay-title="Screenshot annotate" { spawn "screenshot-annotate"; }
-    Print { spawn "screenshot-annotate"; }
-    Ctrl+Print { screenshot-screen; }
+    Print { screenshot; }
     Alt+Print { screenshot-window; }
+    Mod+Shift+S { screenshot; }
+    Ctrl+Print hotkey-overlay-title="Screenshot annotate" { spawn "screenshot-annotate"; }
+
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

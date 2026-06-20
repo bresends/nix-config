@@ -9,7 +9,7 @@ mkdir -p "$DIR"
 FILENAME="${DIR}/screenshot-$(date '+%y-%d-%m-%H:%M').png"
 
 # Select region and capture screenshot (exits if cancelled)
-GEOMETRY=$(slurp) || exit 0
+GEOMETRY=$(slurp -d -c '#f8acff') || exit 0
 grim -g "$GEOMETRY" - | satty --filename - --output-filename "$FILENAME" --early-exit --initial-tool arrow || exit 0
 
 # Copy path to clipboard if file was successfully created
