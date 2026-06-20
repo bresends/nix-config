@@ -72,8 +72,8 @@ in
       bind-key -n M-p previous-window
       bind-key -n M-\; last-window
 
-      bind-key -n M-N swap-window -t +1\; select-window -t +1
-      bind-key -n M-P swap-window -t -1\; select-window -t -1
+      bind-key -n M-S-Left swap-window -t -1\; select-window -t -1
+      bind-key -n M-S-Right swap-window -t +1\; select-window -t +1
 
       # Popups
       bind-key o switch-client -T open
