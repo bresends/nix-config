@@ -8,6 +8,7 @@
 
 let
   cliTools = with pkgs; [
+    bat
     gcc
     unzip
     htop

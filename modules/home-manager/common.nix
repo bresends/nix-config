@@ -29,7 +29,6 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    anki-bin
     bibata-cursors
     nautilus
     kdePackages.kate
