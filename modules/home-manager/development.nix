@@ -7,7 +7,10 @@
 }:
 
 let
+  ntn = pkgs.callPackage ../../pkgs/ntn/package.nix { };
+
   cliTools = with pkgs; [
+    ntn
     bat
     gcc
     unzip
