@@ -18,6 +18,7 @@
     ../../modules/nixos/kanata.nix
     ../../modules/nixos/onlyoffice.nix
     ../../modules/nixos/fcitx5.nix
+    ../../modules/nixos/playwright.nix
     ../../modules/nixos/zsh.nix
   ];
 

@@ -14,7 +14,7 @@ let
     bat
     gcc
     unzip
-    htop
+    btop
     stow
     ghostty
     gh
@@ -33,13 +33,6 @@ let
     python3
     nodejs
     postgresql
-  ];
-
-  androidTools = with pkgs; [
-    android-studio
-    android-tools
-    flutter
-    firebase-tools
   ];
 
   lsp = with pkgs; [
@@ -75,15 +68,14 @@ let
 
   aiTools = [
     llm-agents.claude-code
-    llm-agents.pi
     llm-agents.opencode
     llm-agents.codex
     llm-agents.antigravity-cli
   ];
+
 in
 {
-  home.packages =
-    cliTools ++ runtimes ++ androidTools ++ lsp ++ formatters ++ linters ++ editors ++ aiTools;
+  home.packages = cliTools ++ runtimes ++ lsp ++ formatters ++ linters ++ editors ++ aiTools;
 
   services.ssh-agent.enable = true;
 }
