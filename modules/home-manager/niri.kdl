@@ -23,6 +23,12 @@ input {
 
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 layout {
     // Set gaps around windows in logical pixels.
     gaps 6
