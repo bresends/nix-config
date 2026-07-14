@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs-unstable, ... }:
 
 let
-  playwrightBrowsers = pkgs.playwright-driver.browsers;
+  playwrightBrowsers = pkgs-unstable.playwright-driver.browsers;
 in
 {
   environment.systemPackages = [
