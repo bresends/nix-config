@@ -16,6 +16,7 @@ choice=$(vicinae dmenu --placeholder "Select Action" <<EOF
 󰏗  Update System
   Garbage Collect
 󰎈  Music
+󰕾  Audio Transcription
   Suspend
 󰐥  Shutdown
 EOF
@@ -23,6 +24,7 @@ EOF
 
 case "$choice" in
     "󰎈  Music") open_music_workspace ;;
+    "󰕾  Audio Transcription") transcribe-whatsapp-audio ;;
     "  Suspend") systemctl suspend ;;
     "󰐥  Shutdown") systemctl poweroff ;;
     "  Garbage Collect")

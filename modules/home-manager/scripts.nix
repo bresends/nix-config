@@ -11,6 +11,18 @@ let
   screenshotAnnotate = pkgs.writeShellScriptBin "screenshot-annotate" (
     builtins.readFile ./scripts/screenshot-annotate.sh
   );
+  transcribeWhatsappAudio = pkgs.writeShellApplication {
+    name = "transcribe-whatsapp-audio";
+    runtimeInputs = with pkgs; [
+      coreutils
+      curl
+      ffmpeg
+      findutils
+      libnotify
+      wl-clipboard
+    ];
+    text = builtins.readFile ./scripts/transcribe-whatsapp-audio.sh;
+  };
 in
 {
   home.packages = [
@@ -18,6 +30,7 @@ in
     youtubeSearch
     bookmarksScript
     screenshotAnnotate
+    transcribeWhatsappAudio
     pkgs.libnotify
     pkgs.grim
     pkgs.slurp
