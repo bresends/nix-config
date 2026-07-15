@@ -34,10 +34,6 @@
       llm-agents = inputs.llm-agents.packages.${system};
     in
     {
-      packages.${system} = {
-        ntn = pkgs-unstable.callPackage ./pkgs/ntn/package.nix { };
-      };
-
       nixosConfigurations = {
         "home-ws01" = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs pkgs-unstable; };
