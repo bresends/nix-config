@@ -7,7 +7,10 @@
 }:
 
 let
+  wmill = pkgs.callPackage ../../pkgs/wmill/package.nix { };
+
   cliTools = with pkgs; [
+    wmill
     bat
     gcc
     unzip
@@ -28,7 +31,7 @@ let
 
   runtimes = with pkgs; [
     python3
-    nodejs
+    nodejs_24
     postgresql
   ];
 
