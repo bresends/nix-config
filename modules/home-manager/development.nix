@@ -10,6 +10,7 @@ let
   wmill = pkgs.callPackage ../../pkgs/wmill/package.nix { };
 
   cliTools = with pkgs; [
+    pkgs-unstable.todoist-cli
     wmill
     bat
     gcc
