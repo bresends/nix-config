@@ -13,6 +13,7 @@
     ../../modules/nixos/niri-desktop.nix
     ../../modules/nixos/audio.nix
     ../../modules/nixos/flatpak.nix
+    ../../modules/nixos/appimage.nix
     ../../modules/nixos/tailscale.nix
     ../../modules/nixos/syncthing.nix
     ../../modules/nixos/kanata.nix

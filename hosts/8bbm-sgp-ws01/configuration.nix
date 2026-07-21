@@ -8,6 +8,7 @@
     ../../modules/nixos/audio.nix
     ../../modules/nixos/niri-desktop.nix
     ../../modules/nixos/flatpak.nix
+    ../../modules/nixos/appimage.nix
     ../../modules/nixos/fcitx5.nix
     ../../modules/nixos/tailscale.nix
     ../../modules/nixos/syncthing.nix
