@@ -40,6 +40,7 @@
     hyprpicker
     playerctl
     yazi
+    kew
   ];
 
   home.sessionVariables = {
