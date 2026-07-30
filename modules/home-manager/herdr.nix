@@ -11,7 +11,7 @@
 
   xdg.configFile."herdr/config.toml".text = ''
     [theme]
-    name = "one-dark"
+    name = "terminal"
 
     [theme.custom]
     panel_bg = "#2d2a2e"
