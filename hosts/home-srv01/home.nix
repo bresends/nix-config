@@ -13,7 +13,7 @@
     ../../modules/home-manager/lazygit.nix
     ../../modules/home-manager/neovim.nix
     ../../modules/home-manager/starship.nix
-    ../../modules/home-manager/tmux.nix
+    ../../modules/home-manager/herdr.nix
     ../../modules/home-manager/zsh.nix
   ];
 
@@ -21,8 +21,6 @@
   home.homeDirectory = "/home/bruno";
 
   nixpkgs.config.allowUnfree = true;
-
-  programs.tmux.prefix = "C-b";
 
   programs.home-manager.enable = true;
 

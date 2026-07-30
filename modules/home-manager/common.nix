@@ -18,7 +18,7 @@
     ./scripts.nix
     ./ssh.nix
     ./starship.nix
-    ./tmux.nix
+    ./herdr.nix
     ./zsh.nix
     ./satty.nix
   ];

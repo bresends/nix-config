@@ -12,7 +12,6 @@
       lsa = "ls --color=auto -lah";
       lg = "lazygit";
       vim = "nvim";
-      tmux = "tmux attach 2>/dev/null || tmux";
       nrs = "sudo nixos-rebuild switch --flake ~/dev/nix-config\\#$(hostname)";
     };
 
@@ -27,7 +26,7 @@
     initContent = ''
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
-      # Clear screen (Ctrl+L is used by vim-tmux-navigator)
+      # Clear screen (Alt+L)
       bindkey '^[l' clear-screen
 
       # SSH hostname completion from ~/.ssh/config
