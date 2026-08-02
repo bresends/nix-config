@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/base.nix
+    ../../modules/nixos/common.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/audio.nix
     ../../modules/nixos/niri-desktop.nix
@@ -16,6 +16,18 @@
     ../../modules/nixos/onlyoffice.nix
     ../../modules/nixos/playwright.nix
     ../../modules/nixos/zsh.nix
+  ];
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  system.stateVersion = "25.05";
+
+  # Desktop-only defaults stay explicit in workstation host configurations.
+  networking.networkmanager.enable = true;
+  services.printing.enable = true;
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
   ];
 
   # Hostname

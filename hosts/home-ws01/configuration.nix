@@ -8,7 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/base.nix
+    ../../modules/nixos/common.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/niri-desktop.nix
     ../../modules/nixos/audio.nix
@@ -21,6 +21,19 @@
     ../../modules/nixos/fcitx5.nix
     ../../modules/nixos/playwright.nix
     ../../modules/nixos/zsh.nix
+  ];
+
+  # Bootloader and state version are properties of this host, not shared
+  # policy.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  system.stateVersion = "25.05";
+
+  # Desktop-only defaults stay explicit in workstation host configurations.
+  networking.networkmanager.enable = true;
+  services.printing.enable = true;
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
   ];
 
   # Disable TPM (firmware bug causes 90s boot timeout)

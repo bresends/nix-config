@@ -3,16 +3,30 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/base.nix
+    ../../modules/nixos/common.nix
+    ../../modules/nixos/ssh.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/audio.nix
     ../../modules/nixos/kde-plasma.nix
-    ../../modules/nixos/ssh.nix
     ../../modules/nixos/docker.nix
     ../../modules/nixos/tailscale.nix
     ../../modules/nixos/no-sleep.nix
     ../../modules/nixos/samba.nix
     ../../modules/nixos/zsh.nix
+  ];
+
+  # Bootloader and state version are properties of this host, not shared
+  # policy.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  system.stateVersion = "25.05";
+
+  # This host still runs KDE, so retain its existing desktop defaults while
+  # keeping them out of the shared server foundation.
+  networking.networkmanager.enable = true;
+  services.printing.enable = true;
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
   ];
 
   # Hostname
