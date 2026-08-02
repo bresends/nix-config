@@ -2,7 +2,7 @@
 set -euo pipefail
 
 downloads_dir="${HOME}/Downloads"
-credentials_file="${XDG_CONFIG_HOME:-${HOME}/.config}/secrets/groq-api-key"
+credentials_file="${XDG_CONFIG_HOME:-${HOME}/.config}/secrets/groq.env"
 groq_endpoint="https://api.groq.com/openai/v1/audio/transcriptions"
 groq_model="whisper-large-v3-turbo"
 
@@ -22,18 +22,26 @@ fi
 
 credentials_mode=$(stat --format='%a' "$credentials_file")
 if (( (8#$credentials_mode & 8#077) != 0 )); then
-    notify_error "The credential is exposed. Run: chmod 600 ${credentials_file}"
+    notify_error "The secrets file is exposed. Run: chmod 600 ${credentials_file}"
     exit 1
 fi
 
-groq_api_key=$(<"$credentials_file")
-if [[ -z "$groq_api_key" ]]; then
-    notify_error "The Groq credential file is empty."
+unset GROQ_API_KEY
+set -a
+if ! source "$credentials_file"; then
+    set +a
+    notify_error "The Groq secrets file could not be loaded."
+    exit 1
+fi
+set +a
+
+if [[ -z "${GROQ_API_KEY:-}" ]]; then
+    notify_error "GROQ_API_KEY is missing from ${credentials_file}."
     exit 1
 fi
 
-if [[ "$groq_api_key" =~ [[:space:]] ]]; then
-    notify_error "The Groq credential must contain only the key, without spaces or extra lines."
+if [[ "$GROQ_API_KEY" =~ [[:space:]] ]]; then
+    notify_error "GROQ_API_KEY must contain only the key, without spaces or extra lines."
     exit 1
 fi
 
@@ -95,7 +103,7 @@ fi
 
 if ! curl --silent --show-error --fail-with-body \
     --request POST "$groq_endpoint" \
-    --header "Authorization: Bearer ${groq_api_key}" \
+    --header "Authorization: Bearer ${GROQ_API_KEY}" \
     --form "file=@${mp3_file};type=audio/mpeg" \
     --form "model=${groq_model}" \
     --form "language=pt" \
