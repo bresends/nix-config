@@ -28,6 +28,7 @@ fi
 
 unset GROQ_API_KEY
 set -a
+# shellcheck disable=SC1090
 if ! source "$credentials_file"; then
     set +a
     notify_error "The Groq secrets file could not be loaded."
