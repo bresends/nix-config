@@ -31,6 +31,7 @@ let
   ];
 
   runtimes = with pkgs; [
+    jdk
     python3
     nodejs_24
     postgresql
@@ -65,6 +66,7 @@ let
 
   editors = [
     pkgs-unstable.vscode
+    pkgs.jetbrains.idea
   ];
 
   aiTools = [
