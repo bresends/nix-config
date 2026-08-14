@@ -7,7 +7,6 @@
 
 {
   imports = [
-    ../../modules/home-manager/development.nix
     ../../modules/home-manager/direnv.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/lazygit.nix
