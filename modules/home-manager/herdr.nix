@@ -27,6 +27,7 @@
     prefix = "ctrl+space"
     navigate_workspace_up = "ctrl+p"
     navigate_workspace_down = "ctrl+n"
+    switch_workspace = "prefix+1..9"
 
     [[keys.command]]
     key = "prefix+alt+g"
