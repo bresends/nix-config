@@ -10,6 +10,8 @@
   ];
 
   xdg.configFile."herdr/config.toml".text = ''
+    onboarding = false
+
     [theme]
     name = "terminal"
 
@@ -23,5 +25,23 @@
 
     [keys]
     prefix = "ctrl+space"
+    navigate_workspace_up = "ctrl+p"
+    navigate_workspace_down = "ctrl+n"
+
+    [[keys.command]]
+    key = "prefix+alt+g"
+    type = "popup"
+    command = "lazygit"
+    description = "run lazygit"
+    width = "80%"
+    height = "80%"
+
+    [[keys.command]]
+    key = "prefix+t"
+    type = "popup"
+    command = "exec \"''${SHELL:-sh}\""
+    description = "open scratch terminal"
+    width = "80%"
+    height = "80%"
   '';
 }
