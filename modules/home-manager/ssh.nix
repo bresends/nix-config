@@ -5,6 +5,10 @@
     enable = true;
     enableDefaultConfig = false;
     settings = {
+      "home-nas" = {
+        HostName = "home-nas";
+        User = "bruno";
+      };
       "oracle-inys-micro-sp-alpha" = {
         HostName = "oracle-inys-micro-sp-alpha";
         User = "bruno";

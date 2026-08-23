@@ -58,6 +58,9 @@
   users.users.bruno = {
     isNormalUser = true;
     description = "bruno";
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICyqjAM2C8L3YZFWD/hnrPLiPx6Et6U2f201vs8PdTPd bruno@home-nas"
+    ];
     extraGroups = [
       "networkmanager"
       "wheel"
