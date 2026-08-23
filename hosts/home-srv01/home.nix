@@ -12,7 +12,6 @@
     ../../modules/home-manager/lazygit.nix
     ../../modules/home-manager/neovim.nix
     ../../modules/home-manager/starship.nix
-    ../../modules/home-manager/herdr.nix
     ../../modules/home-manager/zsh.nix
   ];
 
