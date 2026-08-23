@@ -66,11 +66,13 @@
 
   # Mount NAS Samba share
   fileSystems."/mnt/nas" = {
-    device = "//192.168.0.10/media";
+    device = "//home-nas/media";
     fsType = "cifs";
     options = [
       "guest"
       "nofail"
+      "_netdev"
+      "x-systemd.automount"
       "uid=1000"
       "gid=100"
       "file_mode=0664"

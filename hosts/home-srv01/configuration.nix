@@ -98,8 +98,10 @@
         "browseable" = "yes";
         "read only" = "no";
         "guest ok" = "yes";
-        "create mode" = "0777";
-        "directory mode" = "0777";
+        "force user" = "bruno";
+        "force group" = "users";
+        "create mask" = "0664";
+        "directory mask" = "2775";
       };
     };
   };
