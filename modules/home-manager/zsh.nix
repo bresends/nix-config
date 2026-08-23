@@ -10,7 +10,6 @@
     shellAliases = {
       ls = "ls --color=auto -lh";
       lsa = "ls --color=auto -lah";
-      lg = "lazygit";
       vim = "nvim";
       nrs = "sudo nixos-rebuild switch --flake ~/dev/nix-config\\#$(hostname)";
     };
