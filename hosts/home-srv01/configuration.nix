@@ -24,7 +24,6 @@
   # This host still runs KDE, so retain its existing desktop defaults while
   # keeping them out of the shared server foundation.
   networking.networkmanager.enable = true;
-  services.printing.enable = true;
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
@@ -65,9 +64,6 @@
       "networkmanager"
       "wheel"
       "docker"
-    ];
-    packages = with pkgs; [
-      kdePackages.kate
     ];
   };
 

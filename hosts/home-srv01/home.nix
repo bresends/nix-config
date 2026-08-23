@@ -1,15 +1,8 @@
-{
-  pkgs,
-  pkgs-unstable,
-  inputs,
-  ...
-}:
+{ ... }:
 
 {
   imports = [
-    ../../modules/home-manager/direnv.nix
     ../../modules/home-manager/git.nix
-    ../../modules/home-manager/lazygit.nix
     ../../modules/home-manager/neovim.nix
     ../../modules/home-manager/starship.nix
     ../../modules/home-manager/zsh.nix
