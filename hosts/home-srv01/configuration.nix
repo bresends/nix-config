@@ -24,6 +24,9 @@
   # This host still runs KDE, so retain its existing desktop defaults while
   # keeping them out of the shared server foundation.
   networking.networkmanager.enable = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    kate
+  ];
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
