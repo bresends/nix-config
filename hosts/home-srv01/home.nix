@@ -15,6 +15,8 @@
 
   programs.home-manager.enable = true;
 
+  bruno.starship.mainColor = "sapphire";
+
   # Match the version from your other configurations
   home.stateVersion = "26.05";
 }

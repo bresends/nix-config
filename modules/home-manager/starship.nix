@@ -1,7 +1,12 @@
-{ ... }:
+{
+  config,
+  lib,
+  ...
+}:
 
 let
   monokaiPro = (import ./colors.nix).monokaiPro;
+  mainColor = config.bruno.starship.mainColor;
 
   langConfig = symbol: {
     inherit symbol;
@@ -10,15 +15,24 @@ let
   };
 in
 {
-  programs.starship = {
+  options.bruno.starship.mainColor = lib.mkOption {
+    type = lib.types.enum [
+      "peach"
+      "sapphire"
+    ];
+    default = "peach";
+    description = "Main Starship prompt segment color.";
+  };
+
+  config.programs.starship = {
     enable = true;
     settings = {
       format =
-        "[](peach)"
+        "[](${mainColor})"
         + "$os"
         + "$username"
         + "$directory"
-        + "[](bg:yellow fg:peach)"
+        + "[](bg:yellow fg:${mainColor})"
         + "$git_branch"
         + "$git_status"
         + "[](fg:yellow bg:green)"
@@ -41,7 +55,7 @@ in
 
       os = {
         disabled = false;
-        style = "bg:peach fg:crust";
+        style = "bg:${mainColor} fg:crust";
         format = "[$symbol]($style)";
         symbols = {
           Windows = "󰍲";
@@ -68,13 +82,13 @@ in
 
       username = {
         show_always = false;
-        style_user = "bg:peach fg:crust";
-        style_root = "bg:peach fg:crust";
+        style_user = "bg:${mainColor} fg:crust";
+        style_root = "bg:${mainColor} fg:crust";
         format = "[ $user]($style)";
       };
 
       directory = {
-        style = "bg:peach fg:crust";
+        style = "bg:${mainColor} fg:crust";
         format = "[$path ]($style)";
         truncation_length = 3;
         truncation_symbol = "/";
