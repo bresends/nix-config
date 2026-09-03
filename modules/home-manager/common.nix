@@ -34,6 +34,7 @@
     kdePackages.kate
     keepassxc
     qview
+    google-chrome
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs-unstable.vicinae
     pkgs-unstable.obsidian
